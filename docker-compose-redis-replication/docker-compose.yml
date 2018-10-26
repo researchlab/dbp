@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  redis_master:
+    image: redis
+    container_name: master
+    ports:
+      - "8001:6379"
+    volumes:
+      - ~/workbench/docker/docker-compose/redis/conf/redis.conf:/etc/redis/redis.conf 
+        ##entrypoint: ["redis-server",  "/etc/redis/redis.conf"]
+    entrypoint:
+      - redis-server
+      - /etc/redis/redis.conf
+    
+  redis_slave_01:
+    image: redis
+    container_name: slave01
+    ports:
+      - "8002:6379"
+    volumes:
+      - ~/workbench/docker/docker-compose/redis/conf/redis.conf:/etc/redis/redis.conf 
+        #entrypoint: ["redis-server", "/etc/redis/redis.conf"]
+    entrypoint:
+      - redis-server
+      - /etc/redis/redis.conf
+      - --slaveof
+      - redis_master
+      - "6379"
+  
+  redis_slave_02:
+    image: redis
+    container_name: slave02
+    ports:
+      - "8003:6379"
+    volumes:
+      - ~/workbench/docker/docker-compose/redis/conf/redis.conf:/etc/redis/redis.conf 
+    command: redis-server /etc/redis/redis.conf --slaveof redis_master 6379
+    #command:
+    #  - redis-server
+    #  - /etc/redis/redis.conf
+    #  - --slaveof 
+    #  - redis_master
+    #  - "6379" 
+    
+
