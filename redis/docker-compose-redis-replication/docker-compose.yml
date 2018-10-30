@@ -7,7 +7,7 @@ services:
     ports:
       - "8001:6379"
     volumes:
-      - ~/workbench/docker/docker-compose/redis/conf/redis.conf:/etc/redis/redis.conf 
+      - ~/workbench/docker/docker-envs/redis/docker-compose-redis-replication/conf/redis.conf:/etc/redis/redis.conf
         ##entrypoint: ["redis-server",  "/etc/redis/redis.conf"]
     entrypoint:
       - redis-server
@@ -19,7 +19,7 @@ services:
     ports:
       - "8002:6379"
     volumes:
-      - ~/workbench/docker/docker-compose/redis/conf/redis.conf:/etc/redis/redis.conf 
+      - ~/workbench/docker/docker-envs/redis/docker-compose-redis-replication/conf/redis.conf:/etc/redis/redis.conf
         #entrypoint: ["redis-server", "/etc/redis/redis.conf"]
     entrypoint:
       - redis-server
@@ -34,7 +34,8 @@ services:
     ports:
       - "8003:6379"
     volumes:
-      - ~/workbench/docker/docker-compose/redis/conf/redis.conf:/etc/redis/redis.conf 
+      - ~/workbench/docker/docker-envs/redis/docker-compose-redis-replication/conf/redis.conf:/etc/redis/redis.conf
+        #entrypoint: ["redis-server", "/etc/redis/redis.conf"]
     command: redis-server /etc/redis/redis.conf --slaveof redis_master 6379
     #command:
     #  - redis-server
