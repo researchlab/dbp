@@ -24,8 +24,8 @@
 
 - mysql
   - hub: https://hub.docker.com/_/mysql/
-  - dockerfile(8.0):https://github.com/docker-library/mysql/blob/223f0be1213bbd8647b841243a3114e8b34022f4/8.0/Dockerfile
-  - dockerfile(5.7):https://github.com/docker-library/mysql/blob/b7c899673a214df4c8027a498c64eec7145ba479/5.7/Dockerfile
+  - dockerfile(8.0):https://github.com/docker-library/mysql/blob/master/8.0/Dockerfile
+  - dockerfile(5.7):https://github.com/docker-library/mysql/blob/master/5.7/Dockerfile
 
 - mysql/mysql-server
   - hub: https://hub.docker.com/r/mysql/mysql-server/
