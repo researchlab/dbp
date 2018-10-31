@@ -31,6 +31,7 @@
   - hub: https://hub.docker.com/r/mysql/mysql-server/
   - dockerfile(8.0):https://github.com/mysql/mysql-docker/blob/mysql-server/8.0/Dockerfile
   - dockerfile(5.7):https://github.com/mysql/mysql-docker/blob/mysql-server/5.7/Dockerfile
+  - references: https://docs.docker.com/samples/library/mysql/
 
 - docker-compose-all-mysql
    - fork from: https://github.com/treetips/docker-compose-all-mysql
