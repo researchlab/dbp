@@ -35,12 +35,12 @@
 - docker-compose-all-mysql
 	- fork from: https://github.com/treetips/docker-compose-all-mysql
 	- Support MySQL version,
-     - MySQL v5.5
-     - MySQL v5.6
-     - MySQL v5.7
-     - MySQL v8.0
-     - mariadb v10.0
-     - mariadb v10.1
-     - mariadb v10.2
-     - mariadb v10.3
+    - MySQL v5.5
+    - MySQL v5.6
+    - MySQL v5.7
+    - MySQL v8.0
+    - mariadb v10.0
+    - mariadb v10.1
+    - mariadb v10.2
+    - mariadb v10.3
 	
