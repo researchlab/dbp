@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=dev123456
+      - MYSQL_USER=dev
+      - MYSQL_PASSWORD=dev123
+      - MYSQL_DATABASE=testdb
+    volumes:
+      - ./conf/:/etc/mysql/conf.d/
+      - ../sqls/:/sqls/
+
+  #adminer:
+  #  image: adminer
+  #  restart: always
+  #  ports:
+  #    - 8080:8080
