@@ -15,6 +15,7 @@ services:
     volumes:
       - ./conf/:/etc/mysql/conf.d/
       - ../sqls/:/sqls/
+      - ./data:/var/lib/mysql #挂载数据目录, 每次重启后老数据依然保留
 
   #adminer:
   #  image: adminer
