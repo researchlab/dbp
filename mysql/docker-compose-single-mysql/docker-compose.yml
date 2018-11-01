@@ -11,6 +11,7 @@ services:
       - MYSQL_USER=dev
       - MYSQL_PASSWORD=dev123
       - MYSQL_DATABASE=testdb
+      - LANG=C.UTF-8 #支持docker命令终端输入中文
     volumes:
       - ./conf/:/etc/mysql/conf.d/
       - ../sqls/:/sqls/
