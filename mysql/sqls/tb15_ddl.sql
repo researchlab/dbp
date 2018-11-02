@@ -1,0 +1,5 @@
+CREATE TABLE tdb_goods_types(
+     type_id   SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+     type_name VARCHAR(20) NOT NULL,
+     parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0
+  ); 
