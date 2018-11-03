@@ -44,4 +44,7 @@
      - mariadb v10.1
      - mariadb v10.2
      - mariadb v10.3
-	
+   
+	 - mysql官方示例数据库: sakila数据库
+     - installation: https://dev.mysql.com/doc/sakila/en/sakila-installation.html
+     - sakila database zip: https://dev.mysql.com/doc/index-other.html
