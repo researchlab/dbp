@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  etcd:
+    container_name: etcd-node
+    hostname: etcd
+    image: quay.io/coreos/etcd
+    ports:
+      - "22379:2379"
+      - "22380:2380"
+    user: root
+    volumes:
+      - "/tmp/docker/etcd/data:/opt/docker/etcd/data"
+    environment:
+      - "ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379"
+      - "ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379"
+      - "ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380"
+      - "ETCD_INITIAL_ADVERTISE_PEER_URLS=http://0.0.0.0:2380"
+      - "ALLOW_NONE_AUTHENTICATION=yes"
+      - "ETCD_INITIAL_CLUSTER=etcd-node=http://0.0.0.0:2380"
+      - "ETCD_NAME=etcd-node"
+      - "ETCD_DATA_DR=/opt/docker/etcd/data"
+    networks:
+      - etcdnet
+  e3w:
+    hostname: e3w
+    image: soyking/e3w:latest
+    ports:
+      - "8089:8080"
+    volumes:
+      - "/tmp/docker/e3w/conf/config.ini:/app/conf/config.default.ini"
+    networks:
+      - etcdnet
+
+networks:
+  etcdnet:

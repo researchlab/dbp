@@ -1,0 +1,96 @@
+version: '3'
+
+services:
+  etcd1:
+    image: quay.io/coreos/etcd
+    container_name: etcd1
+    command:
+      /usr/local/bin/etcd
+      -name etcd1
+      -data-dir /data/etcd
+      -advertise-client-urls http://0.0.0.0:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster "etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380"
+      -initial-cluster-state new
+    volumes:
+      - "/tmp/docker/etcd/data1:/data/etcd"
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+        #- "ETCD_ADVERTISE_CLIENT_URLS=http://etcd1:2379"
+ 
+    ports:
+      - 2379
+      - 2380
+    networks:
+      - etcdnet
+
+  etcd2:
+    image: quay.io/coreos/etcd
+    container_name: etcd2
+    command:
+      /usr/local/bin/etcd
+      -name etcd2
+      -data-dir /data/etcd
+      -advertise-client-urls http://0.0.0.0:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster "etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380"
+      -initial-cluster-state new
+    volumes:
+      - "/tmp/docker/etcd/data2:/data/etcd"
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+        #- "ETCD_ADVERTISE_CLIENT_URLS=http://etcd2:2379"
+ 
+    ports:
+      - 2379
+      - 2380
+    networks:
+      - etcdnet
+
+  etcd3:
+    image: quay.io/coreos/etcd
+    container_name: etcd3
+    command:
+      /usr/local/bin/etcd
+      -name etcd3
+      -data-dir /data/etcd
+      -advertise-client-urls http://0.0.0.0:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster "etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380"
+      -initial-cluster-state new
+    volumes:
+      - "/tmp/docker/etcd/data3:/data/etcd"
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+        #- "ETCD_ADVERTISE_CLIENT_URLS=http://etcd3:2379"
+ 
+    ports:
+      - 2379
+      - 2380
+    networks:
+      - etcdnet
+  e3w:
+    hostname: e3w
+    image: soyking/e3w:latest
+    ports:
+      - "8089:8080"
+    volumes:
+      - "/tmp/docker/e3w/conf/config.ini:/app/conf/config.default.ini"
+    networks:
+      - etcdnet
+
+
+
+
+networks:
+  etcdnet:
+
