@@ -13,9 +13,13 @@ e3w 是一个 etcd 的 ui 界面，可以方便地查看和管理当前的 kv �
 
 
 github etcd: https://github.com/etcd-io/etcd
+
 github ui 界面 e3w: https://github.com/soyking/e3w
+
 etcd 配置: https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/configuration.md
+
 docker etcd 镜像: https://hub.docker.com/r/bitnami/etcd
+
 docker e3w 镜像: https://hub.docker.com/r/soyking/e3w
 
 etcd API: https://github.com/etcd-io/etcd/blob/6acb3d67fbe131b3b2d5d010e00ec80182be4628/Documentation/v2/api.md
