@@ -1,17 +1,17 @@
 docker etcd cluster 
 
 参数说明
-- data-dir 指定节点的数据存储目录，这些数据包括节点ID，集群ID，集群初始化配置，Snapshot文件，若未指定—wal-dir，还会存储WAL文件；
-- wal-dir 指定节点的was文件的存储目录，若指定了该参数，wal文件会和其他数据文件分开存储。
-- name 节点名称
-- initial-advertise-peer-urls 告知集群其他节点url.
-- listen-peer-urls 监听URL，用于与其他节点通讯
-- advertise-client-urls 告知客户端url, 也就是服务的url
-- initial-cluster-token 集群的ID
-- initial-cluster 集群中所有节点
-- initial-cluster-state 监听客户端状态
-- listen-client-urls 监听客户端地址
-- initial-cluster-state new 初始化集群 为新节点
+- --data-dir 指定节点的数据存储目录，这些数据包括节点ID，集群ID，集群初始化配置，Snapshot文件，若未指定—wal-dir，还会存储WAL文件；
+- --wal-dir 指定节点的was文件的存储目录，若指定了该参数，wal文件会和其他数据文件分开存储。
+- --name 节点名称
+- --initial-advertise-peer-urls 告知集群其他节点url.
+- --listen-peer-urls 监听URL，用于与其他节点通讯
+- --advertise-client-urls 告知客户端url, 也就是服务的url
+- --initial-cluster-token 集群的ID
+- --initial-cluster 集群中所有节点
+- --initial-cluster-state 监听客户端状态
+- --listen-client-urls 监听客户端地址
+- --initial-cluster-state new 初始化集群 为新节点
 
 使用示例
 
@@ -69,3 +69,24 @@ d282ac2ce600c1ce: name=etcd2 peerURLs=http://etcd2:2380 clientURLs=http://0.0.0.
 }
 ➜  cluster git:(master) ✗
 ```
+
+e3w 配置说明
+```
+➜  cluster git:(master) ✗ cat /tmp/docker/e3w/conf/config.ini
+[app]
+port=8080
+auth=false
+
+[etcd]
+root_key=e3w_test
+dir_value=service
+addr=etcd:2379,etcd1:2379,etcd2:2379,etcd3:2379
+username=
+password=
+cert_file=
+key_file=
+ca_file=
+
+```
+- addr 填写的是 每个etcd node 的-advertise-client-urls http://etcd1:2379值;
+ 

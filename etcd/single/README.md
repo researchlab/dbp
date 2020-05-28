@@ -23,3 +23,24 @@ docker etcd 镜像: https://hub.docker.com/r/bitnami/etcd
 docker e3w 镜像: https://hub.docker.com/r/soyking/e3w
 
 etcd API: https://github.com/etcd-io/etcd/blob/6acb3d67fbe131b3b2d5d010e00ec80182be4628/Documentation/v2/api.md
+
+e3w 配置说明
+```
+➜  cluster git:(master) ✗ cat /tmp/docker/e3w/conf/config.ini
+[app]
+port=8080
+auth=false
+
+[etcd]
+root_key=e3w_test
+dir_value=service
+addr=etcd:2379
+username=
+password=
+cert_file=
+key_file=
+ca_file=
+
+```
+- addr 填写的是 每个etcd node 的-advertise-client-urls http://etcd1:2379值;
+
