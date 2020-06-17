@@ -1,0 +1,126 @@
+version: "3.6"
+services:
+
+  node1:
+    image: ${IMAGE_URL}
+    volumes:
+      - node1-data:/etcd-data
+    expose:
+      - 2379
+      - 2380
+    networks:
+      cluster_net:
+        #     ipv4_address: ${Node1_IPv4}
+    environment:
+      - ETCDCTL_API=3
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --name
+      - node1
+      - --initial-advertise-peer-urls
+      - http://${Node1_IPv4}:2380
+      - --listen-peer-urls
+      - http://0.0.0.0:2380
+      - --advertise-client-urls
+      - http://${Node1_IPv4}:2379
+      - --listen-client-urls
+      - http://0.0.0.0:2379
+      - --initial-cluster
+        #- node1=http://${Node1_IPv4}:2380,node2=http://${Node2_IPv4}:2380,node3=http://${Node3_IPv4}:2380
+      - node1=http://node1:2380,node2=http://node2:2380,node3=http://node3:2380
+      - --initial-cluster-state
+      - new
+      - --initial-cluster-token
+      - docker-etcd
+
+  node2:
+    image: ${IMAGE_URL}
+    volumes:
+      - node2-data:/etcd-data
+    networks:
+      cluster_net:
+        #ipv4_address: ${Node2_IPv4}
+    environment:
+      - ETCDCTL_API=3
+    expose:
+      - 2379
+      - 2380
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --name
+      - node2
+      - --initial-advertise-peer-urls
+      - http://${Node2_IPv4}:2380
+      - --listen-peer-urls
+      - http://0.0.0.0:2380
+      - --advertise-client-urls
+      - http://${Node2_IPv4}:2379
+      - --listen-client-urls
+      - http://0.0.0.0:2379
+      - --initial-cluster
+      - node1=http://node1:2380,node2=http://node2:2380,node3=http://node3:2380
+        #- node1=http://${Node1_IPv4}:2380,node2=http://${Node2_IPv4}:2380,node3=http://${Node3_IPv4}:2380
+      - --initial-cluster-state
+      - new
+      - --initial-cluster-token
+      - docker-etcd
+
+  node3:
+    image: ${IMAGE_URL}
+    volumes:
+      - node3-data:/etcd-data
+    networks:
+      cluster_net:
+        #ipv4_address: ${Node3_IPv4}
+    environment:
+      - ETCDCTL_API=3
+    expose:
+      - 2379
+      - 2380
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --name
+      - node3
+      - --initial-advertise-peer-urls
+      - http://${Node3_IPv4}:2380
+      - --listen-peer-urls
+      - http://0.0.0.0:2380
+      - --advertise-client-urls
+      - http://${Node3_IPv4}:2379
+      - --listen-client-urls
+      - http://0.0.0.0:2379
+      - --initial-cluster
+        #- node1=http://${Node1_IPv4}:2380,node2=http://${Node2_IPv4}:2380,node3=http://${Node3_IPv4}:2380
+      - node1=http://node1:2380,node2=http://node2:2380,node3=http://node3:2380
+      - --initial-cluster-state
+      - new
+      - --initial-cluster-token
+      - docker-etcd
+  e3w:
+    hostname: e3w
+    image: soyking/e3w:latest
+    ports:
+      - "8089:8080"
+    volumes:
+      - "/tmp/docker/e3w/conf/config.ini:/app/conf/config.default.ini"
+    networks:
+      cluster_net:
+        #ipv4_address: ${E3W}
+ 
+
+volumes:
+  node1-data:
+  node2-data:
+  node3-data:
+
+networks:
+  cluster_net:
+    #driver: bridge
+    #ipam:
+    #  driver: default
+    #  config:
+    #  -
+    #    subnet: ${SUBNET}/24

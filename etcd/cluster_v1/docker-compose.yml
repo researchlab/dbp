@@ -1,0 +1,107 @@
+version: '3.6'
+
+services:
+  etcd01:
+    image: ${IMAGETAG:-quay.io/coreos/etcd}
+    container_name: ${Service01} 
+    command:
+      /usr/local/bin/etcd
+      -name ${Service01}
+      -data-dir /data/etcd
+      -advertise-client-urls http://${Service01}:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token ${CLUSTER_TOKEN}
+      -initial-cluster "${Service01}=http://${Service01}:2380,${Service02}=http://${Service02}:2380,${Service03}=http://${Service03}:2380"
+      -initial-cluster-state 'new'
+    volumes:
+      - etcd01-data:/data/etcd
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+      - ETCDCTL_API=3
+        #- "ETCD_ADVERTISE_CLIENT_URLS=http://${Service01}:2379"
+ 
+    ports:
+      - 2379
+      - 2380
+    networks:
+      - etcdnet
+
+  etcd02:
+    image: ${IMAGETAG:-quay.io/coreos/etcd}
+    container_name: ${Service02}
+    command:
+      /usr/local/bin/etcd
+      -name ${Service02}
+      -data-dir /data/etcd
+      -advertise-client-urls http://${Service02}:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token ${CLUSTER_TOKEN}
+      --initial-advertise-peer-urls 'http://${Service02}:2380'
+      -initial-cluster "${Service01}=http://${Service01}:2380,${Service02}=http://${Service02}:2380,${Service03}=http://${Service03}:2380"
+      -initial-cluster-state 'new'
+    volumes:
+      - etcd02-data:/data/etcd
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+      - ETCDCTL_API=3
+        #- "ETCD_ADVERTISE_CLIENT_URLS=http://${Service02}:2379"
+ 
+    ports:
+      - 2379
+      - 2380
+    networks:
+      - etcdnet
+
+  etcd03:
+    image: ${IMAGETAG:-quay.io/coreos/etcd}
+    container_name: ${Service03}
+    command:
+      /usr/local/bin/etcd
+      -name ${Service03}
+      -data-dir /data/etcd
+      -advertise-client-urls http://${Service03}:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token ${CLUSTER_TOKEN}
+      --initial-advertise-peer-urls 'http://${Service03}:2380'
+      -initial-cluster "${Service01}=http://${Service01}:2380,${Service02}=http://${Service02}:2380,${Service03}=http://${Service03}:2380"
+      -initial-cluster-state 'new'
+    volumes:
+      - etcd03-data:/data/etcd
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+      - ETCDCTL_API=3
+        #- "ETCD_ADVERTISE_CLIENT_URLS=http://${Service03}:2379"
+ 
+    ports:
+      - 2379
+      - 2380
+    networks:
+      - etcdnet
+  e3w:
+    hostname: e3w
+    image: ${E3W_IMAGETAG:-soyking/e3w:latest}
+    ports:
+      - "8089:8080"
+    volumes:
+      - "/tmp/docker/e3w/conf/config.ini:/app/conf/config.default.ini"
+    networks:
+      - etcdnet
+
+
+
+
+networks:
+  etcdnet:
+
+volumes:
+  etcd01-data: 
+  etcd02-data:
+  etcd03-data:
+
+
