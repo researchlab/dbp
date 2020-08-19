@@ -42,15 +42,20 @@ dashboard-port: 3000
 ##
 # store configuration
 ##
+#用于通知其他ETCD节点，客户端接入本节点的监听地址，一般来说advertise-client-urls是listen-client-urls子集
 etcd-advertise-client-urls: "http://127.0.0.1:2389"
 #etcd-cert-file: "/path/to/ssl/cert.pem"
 #etcd-client-cert-auth: false
+# 通知其他节点与本节点进行数据交换（选举，同步）的地址，URL可以使用domain地址。
 etcd-initial-advertise-peer-urls: "http://127.0.0.1:2390"
+# 集群所有节点配置，多个用逗号隔开。
 etcd-initial-cluster: "default=http://127.0.0.1:2390"
 etcd-initial-cluster-state: "new" # new or existing
 etcd-initial-cluster-token: "sensu"
 #etcd-key-file: "/path/to/ssl/key.pem"
+#本节点访问地址，地址写法是 scheme://IP:port，可以多个并用逗号隔开，如果配置是http://0.0.0.0:2379,将不限制node访问地址
 etcd-listen-client-urls: "http://127.0.0.1:2389"
+#本节点与其他节点进行数据交换(选举，数据同步)的监听地址，地址写法是 scheme://IP:port，可以多个并用逗号隔开，如果配置是http://0.0.0.0:2379,将不限制node访问地址
 etcd-listen-peer-urls: "http://127.0.0.1:2390"
 etcd-name: "default"
 #etcd-peer-cert-file: "/path/to/ssl/cert.pem"
