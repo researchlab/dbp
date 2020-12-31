@@ -7,6 +7,9 @@
   - `docker-compose unpause service_name` 将暂停的`service`容器实例恢复运行;
   - `docker-compose config` 可查看完整的编排内容;
 
+## tools
+	- `./version.sh mysql/mysql-server` 查看`mysql/mysql-server镜像的所有可用版本`
+
 ## redis(docker) 
 
 - latest stable redis: 5.0
