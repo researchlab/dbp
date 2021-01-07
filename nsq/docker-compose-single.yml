@@ -1,0 +1,29 @@
+# docker-compose.yml
+---
+version: '3'
+services:
+  nsqlookupd-service:
+    image: nsqio/nsq
+    command: >
+      /nsqlookupd
+      -broadcast-address localhost:4160
+    ports:
+      - "4160:4160"
+      - "4161:4161"
+  nsqd:
+    image: nsqio/nsq
+    hostname: nsqd-node
+    command: >
+      /nsqd
+      -broadcast-address nsqd 
+      -lookupd-tcp-address nsqlookupd-service:4160
+    ports:
+      - "4150:4150"
+      - "4151:4151"
+  nsqadmin:
+      image: nsqio/nsq
+      command: /nsqadmin --lookupd-http-address=nsqlookupd-service:4161
+      depends_on:
+        - nsqlookupd-service
+      ports:
+        - "4171:4171"
