@@ -39,6 +39,6 @@ There is NO WARRANTY, to the extent permitted by law.
 
 vscode 安装Remote - Containers 插件
 
-在右下角选择><, 选择Remote-Containers: Attach to running container...  
+在左下角选择><, 选择Remote-Containers: Attach to running container...  
 
 vscode 为Editor, 编辑调试都在远程的container中;
