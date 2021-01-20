@@ -1,0 +1,8 @@
+version: '3'
+services:
+  nsqd:
+      image: nsqio/nsq:v1.2.0
+      command: /nsqd --broadcast-address=178.104.163.69 --lookupd-tcp-address=178.104.163.205:4160
+      ports:
+        - "178.104.163.69:4150"
+        - "178.104.163.69:4151"

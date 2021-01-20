@@ -1,0 +1,23 @@
+version: '3'
+services:
+  nsqlookupd:
+      image: nsqio/nsq:v1.2.0
+      command: /nsqlookupd
+      ports:
+        - "178.104.163.205:4160:4160"
+        - "178.104.163.205:4161:4161"
+  nsqd:
+      image: nsqio/nsq:v1.2.0
+      command: /nsqd --broadcast-address=178.104.163.205 --lookupd-tcp-address=178.104.163.205:4160
+      depends_on:
+          - nsqlookupd
+      ports:
+          - "178.104.163.205:4150:4150"
+          - "178.104.163.205:4151:4151"
+  nsqadmin:
+      image: nsqio/nsq:v1.2.0
+      command: /nsqadmin --lookupd-http-address=178.104.163.205:4161
+      depends_on:
+        - nsqlookupd
+      ports:
+        - "178.104.163.205:4171:4171"
