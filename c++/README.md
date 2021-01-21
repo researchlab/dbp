@@ -42,3 +42,13 @@ vscode 安装Remote - Containers 插件
 在左下角选择><, 选择Remote-Containers: Attach to running container...  
 
 vscode 为Editor, 编辑调试都在远程的container中;
+
+Reference
+
+https://www.qikqiak.com/post/use-vscode-remote-dev-debug/
+
+```
+#cmd
+strings /usr/lib64/libstdc++.so.6 | grep GLIBC
+```
+
