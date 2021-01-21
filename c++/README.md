@@ -45,7 +45,7 @@ vscode 为Editor, 编辑调试都在远程的container中;
 
 Reference
 
-https://www.qikqiak.com/post/use-vscode-remote-dev-debug/
+[使用 VSCode 远程开发调试](https://www.qikqiak.com/post/use-vscode-remote-dev-debug/)
 
 ```
 #cmd
