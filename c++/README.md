@@ -52,3 +52,8 @@ Reference
 strings /usr/lib64/libstdc++.so.6 | grep GLIBC
 ```
 
+Reference
+
+- [centos7 ./code-server: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20' not found 解决方法](https://blog.csdn.net/sinat_36008080/article/details/89604382)
+
+- [Centos 7安装protobuf3.6.1](https://www.cnblogs.com/WindSun/p/12543821.html)
