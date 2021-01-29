@@ -10,7 +10,7 @@ gdb-10.1.tar.gz
 
 
 ```
-➜  c++ git:(master) ✗ docker run -it --name dev researchboy/cppdev:v1.0 /bin/sh
+➜ docker run -it --rm researchboy/cppdev:1.0-gcc7.5.0 /bin/sh
 sh-4.2# gcc -v
 Using built-in specs.
 COLLECT_GCC=gcc
@@ -27,12 +27,22 @@ Target: x86_64-pc-linux-gnu
 Configured with: ../configure --prefix=/usr/local/gcc7 --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --enable-gnu-indirect-function --with-tune=generic --disable-multilib
 Thread model: posix
 gcc version 7.5.0 (GCC)
+sh-4.2# c++ -v
+Using built-in specs.
+COLLECT_GCC=c++
+COLLECT_LTO_WRAPPER=/usr/local/gcc7/libexec/gcc/x86_64-pc-linux-gnu/7.5.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/usr/local/gcc7 --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --enable-gnu-indirect-function --with-tune=generic --disable-multilib
+Thread model: posix
+gcc version 7.5.0 (GCC)
 sh-4.2# gdb -v
 GNU gdb (GDB) 10.1
 Copyright (C) 2020 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
+sh-4.2# protoc --version
+libprotoc 3.14.0
 ```
 
 ### 与vscode 集成远程c++ 开发环境
