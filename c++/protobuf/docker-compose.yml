@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  gcc7.5.0:
+    hostname: gcc-7-5
+    image: researchboy/cppdev:v1.0
+    container_name: cpp-dev-gcc7.5.0
+    tty: true 
+    volumes:
+      - /Users/lihong/workbench/dev/src/github.com/researchlab/dbp/c++/protobuf/src:/opt/src
