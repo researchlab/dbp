@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos7"
+
+	config.vm.network "public_network"
+	config.vm.define "k8s-base"
+	config.vm.provider "virtualbox" do |vb|
+		vb.name = "k8s-base"
+	end
+	config.ssh.insert_key = false
+	config.vm.hostname = "k8s-base"
+
+	# Vagrant provision shell with root privilege
+	# set privileged true
+	config.vm.provision "shell", path: "init.sh", privileged: true
+end
