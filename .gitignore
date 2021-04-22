@@ -1,3 +1,6 @@
 mysql/docker-compose-single-mysql/data/*
 !mysql/docker-compose-single-mysql/data/.keep
 registry/docker
+vagrant/base/k8s/.vagrant/
+vagrant/base/ubuntu/.vagrant/
+vagrant/k8s_3node_centos/.vagrant/
