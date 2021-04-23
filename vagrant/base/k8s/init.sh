@@ -12,7 +12,12 @@ setenforce 0
 # 开启内核模块
 modprobe br_netfilter 
 
-# k8s config 
+# 同步时间
+# yum install ntpdate -y
+# ntpdate http://cn.pool.ntp.org
+
+# 增加网络转发
+# 桥接的IPV4流量传递到iptables 的链
 cat>/etc/sysctl.d/k8s.conf<<EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
@@ -21,8 +26,21 @@ EOF
 
 sysctl -p /etc/sysctl.d/k8s.conf
 
+# kube-proxy开启ipvs
+# cat>/etc/sysconfig/modules/ipvs.modules<<EOF
+# #!/bin/bash
+# modprobe -- ip_vs
+# modprobe -- ip_vs_rr
+# modprobe -- ip_vs_wrr
+# modprobe -- ip_vs_sh
+# modprobe -- nf_conntrack_ipv4
+# EOF
+
 # disable swap 
 swapoff -a 
+sed -i 's+/swapfile+#/swapfile+' /etc/fstab
+echo vm.swappiness=0 >> /etc/sysctl.conf
+sysctl -p
 
 # install k8s components 
 yum install -y yum-utils device-mapper-persisten-data lvm2 wget vim net-tools
@@ -49,3 +67,8 @@ systemctl enable docker
 
 systemctl start kubelet 
 systemctl enable kubelet
+
+# permit root remote login 
+sed -i 's+#PermitRootLogin yes+PermitRootLogin yes+' /etc/ssh/sshd_config
+sed -i 's+#PermitEmptyPasswords no+PermitEmptyPasswords yes+' /etc/ssh/sshd_config
+sed -i 's+PasswordAuthentication no+PasswordAuthentication yes+' /etc/ssh/sshd_config
