@@ -13,8 +13,14 @@ setenforce 0
 modprobe br_netfilter 
 
 # 同步时间
+# 方案一
 # yum install ntpdate -y
 # ntpdate http://cn.pool.ntp.org
+
+#方案二
+#yum install -y chrony 
+#systemctl enable --now chronyd
+#chronyc sources && timedatectl
 
 # 增加网络转发
 # 桥接的IPV4流量传递到iptables 的链
@@ -27,14 +33,37 @@ EOF
 sysctl -p /etc/sysctl.d/k8s.conf
 
 # kube-proxy开启ipvs
+# 参考：https://github.com/kubernetes/kubernetes/tree/master/pkg/proxy/ipvs
+# kuber-proxy代理支持iptables和ipvs两种模式，使用ipvs模式需要在初始化集群前加载要求的ipvs模块并安装ipset工具。另外，针对Linux kernel 4.19以上的内核版本使用nf_conntrack 代替nf_conntrack_ipv4。
+# 方案一
 # cat>/etc/sysconfig/modules/ipvs.modules<<EOF
 # #!/bin/bash
+# # Load IPVS at boot
 # modprobe -- ip_vs
 # modprobe -- ip_vs_rr
 # modprobe -- ip_vs_wrr
 # modprobe -- ip_vs_sh
 # modprobe -- nf_conntrack_ipv4
 # EOF
+
+# 方案二
+cat>/etc/modules-load.d/ipvs.conf<<EOF
+# Load IPVS at boot
+ip_vs
+ip_vs_rr
+ip_vs_wrr
+ip_vs_sh
+nf_conntrack_ipv4
+EOF
+
+systemctl enable --now systemd-modules-load.service
+
+#确认内核模块加载成功
+lsmod |grep -e ip_vs -e nf_conntrack_ipv4
+
+#安装ipset、ipvsadm
+yum install -y ipset ipvsadm
+
 
 # disable swap 
 swapoff -a 
