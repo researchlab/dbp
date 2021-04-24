@@ -1,0 +1,46 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+boxes = [
+	{
+		:name => "k8s-calico-01",
+		:eth1 => "192.168.206.10",
+		:mem  => "2048",
+		:cpu  => "2"
+	},
+	{
+    :name => "k8s-calico-02",
+		:eth1 => "192.168.206.11",
+		:mem  => "1024",
+		:cpu  => "1"
+	},
+	{
+    :name => "k8s-calico-03",
+		:eth1 => "192.168.206.12",
+		:mem  => "1024",
+		:cpu  => "1"
+	}
+]
+
+Vagrant.configure("2") do |config|
+
+	config.vm.box = "k8s-v1.20.1"
+	
+	boxes.each do |opts|
+		config.vm.define opts[:name] do |config|
+			config.vm.hostname = opts[:name]
+			config.vm.provider "virtualbox" do |v|
+				v.customize ["modifyvm", :id, "--memory", opts[:mem]]
+				v.customize ["modifyvm", :id, "--cpus", opts[:cpu]]
+			  v.name = opts[:name]
+			end
+			config.vm.network "private_network", ip: opts[:eth1]
+			# 设置公有网络, 如果要设置ip, 则这个ip需要和宿主机在同一个网段，且没有被占用, 这样才能和宿主机通信;
+			# 如果不清楚, 也可以不设置, 在创建虚拟机时会自动分配一个和宿主机同网段可用的ip 
+			#config.vm.network "public_network"
+			# base box need set insert_key = false
+			config.ssh.insert_key = false
+			config.vm.provision "shell", path: "init.sh", privileged: true
+		end
+	end	
+end
