@@ -33,9 +33,10 @@ chronyc sources && timedatectl
 # Set bridged packets to traverse iptables rules.
 # enable iptable kernel parameter
 cat>/etc/sysctl.d/k8s.conf<<EOF
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
+net.bridge.bridge-nf-call-iptables=1	# 节点上的iptables能够正确地查看桥接流量
+net.bridge.bridge-nf-call-ip6tables=1	# 节点上的iptables能够正确地查看桥接流量
+# 启用IP路由转发功能
+net.ipv4.ip_forward = 1 # 主要是目的是 当linux主机有多个网卡时一个网卡收到的信息是否能够传递给其他的网卡 如果设置成1 的话 可以进行数据包转发 可以实现VxLAN 等功能, 如果设置为0 则不能转发ip
 EOF
 
 sysctl -p /etc/sysctl.d/k8s.conf
