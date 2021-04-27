@@ -10,6 +10,7 @@ sudo sed -i 's+SELINUX=enforcing+SELINUX=disabled+' /etc/selinux/config
 setenforce 0
 
 # 开启内核模块
+# Enable transparent masquerading and facilitate Virtual Extensible LAN (VxLAN) traffic for communication between Kubernetes pods across the cluster.
 modprobe br_netfilter 
 
 # 同步时间
@@ -18,12 +19,14 @@ modprobe br_netfilter
 # ntpdate http://cn.pool.ntp.org
 
 #方案二
+# centos8 默认时间更新方案
 #yum install -y chrony 
 #systemctl enable --now chronyd
 #chronyc sources && timedatectl
 
 # 增加网络转发
 # 桥接的IPV4流量传递到iptables 的链
+# Set bridged packets to traverse iptables rules.
 cat>/etc/sysctl.d/k8s.conf<<EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
