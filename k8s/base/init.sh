@@ -78,15 +78,18 @@ lsmod |grep -e ip_vs -e nf_conntrack_ipv4
 # 安装ipset、ipvsadm
 yum install -y ipset ipvsadm
 
-# install useful tools
-# install kmod and ceph-common for rook
-yum install -y yum-utils device-mapper-persisten-data lvm2 wget curl conntrack-tools vim net-tools telnet tcpdump bind-utils kmod ceph-common dos2unix
 
-# install k8s components
+# update docker repo
 wget -O /etc/yum.repos.d/docker-ce.repo https://download.docker.com/linux/centos/docker-ce.repo
 
 sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc/yum.repos.d/docker-ce.repo
 
+# install useful tools
+# install kmod and ceph-common for rook
+# yum-utils提供了yum-config-manager工具；device-mapper-persisten-data及lvm2则是devicemapper储存驱动所需要的包
+yum install -y yum-utils device-mapper-persistent-data lvm2 wget curl conntrack-tools vim net-tools telnet tcpdump bind-utils kmod ceph-common dos2unix
+
+# install k8s components
 cat>/etc/yum.repos.d/kubernetes.repo<<EOF
 [kubernetes]
 name=Kubernetes
@@ -97,10 +100,11 @@ repo_gpgcheck=1
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
 
-sudo yum makecache fast 
+sudo yum makecache 
 yum install -y docker-ce kubelet-1.20.0 kubeadm-1.20.0 kubectl-1.20.0
 
-cat > /etc/docker/daemon.json <<EOF
+mkdir -p /etc/docker/
+cat>/etc/docker/daemon.json<<EOF
 {
   "registry-mirrors" : [
 	"https://reg-mirror.qiniu.com",
