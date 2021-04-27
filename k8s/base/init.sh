@@ -61,13 +61,15 @@ sysctl -p
 # EOF
 
 # 方案二
+# In the newest RHEL 8.3 , nf_conntrack_ipv4 and nf_conntrack_ipv6 are merged together into the nf_conntrack kernel module. So the check in roles/kubernetes/node/tasks/main.yml should be updated
+# https://github.com/kubernetes-sigs/kubespray/issues/6934
 cat>/etc/modules-load.d/ipvs.conf<<EOF
 # Load IPVS at boot
 ip_vs
 ip_vs_rr
 ip_vs_wrr
 ip_vs_sh
-nf_conntrack_ipv4
+nf_conntrack
 EOF
 
 systemctl enable --now systemd-modules-load.service
@@ -87,7 +89,8 @@ sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc
 # install useful tools
 # install kmod and ceph-common for rook
 # yum-utils提供了yum-config-manager工具；device-mapper-persisten-data及lvm2则是devicemapper储存驱动所需要的包
-yum install -y yum-utils device-mapper-persistent-data lvm2 wget curl conntrack-tools vim net-tools telnet tcpdump bind-utils kmod ceph-common dos2unix
+yum install -y yum-utils device-mapper-persistent-data lvm2 wget curl conntrack-tools vim net-tools telnet tcpdump bind-utils 
+# yum install -y kmod ceph-common dos2unix
 
 # install k8s components
 cat>/etc/yum.repos.d/kubernetes.repo<<EOF
@@ -120,7 +123,6 @@ EOF
 systemctl start docker 
 systemctl enable docker 
 
-systemctl start kubelet 
 systemctl enable kubelet
 
 # permit root remote login 
