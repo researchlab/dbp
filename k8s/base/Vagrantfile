@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "roboxes/centos8"
+  config.vm.box_version = "3.2.16"
+	
+	config.vm.network "private_network", type:"dhcp"
+	$base_name = "k8s-v1.20.0"
+	config.vm.define $base_name
+	config.vm.provider "virtualbox" do |vb|
+		vb.name = $base_name 
+	end
+	config.ssh.insert_key = false 
+	config.vm.hostname = $base_name 
+	config.vm.provision "shell", path: "init.sh"
+end
