@@ -5,3 +5,4 @@ vagrant/base/k8s/.vagrant/
 vagrant/base/ubuntu/.vagrant/
 vagrant/k8s_3node_centos/.vagrant/
 vagrant/k8s_3node_centos_calico/.vagrant
+k8s/base/.vagrant/
