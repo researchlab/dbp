@@ -1,16 +1,30 @@
-# 安装 nodejs 基础节点
-FROM node:8.5-alpine
+# Base image, default node image
+FROM node:13.10-slim
 
-# 安装 nodejs 的模块：gitbook 命令行
-RUN npm install gitbook-cli -g
+# Environment configuration
+ENV	GITBOOK_VERSION3_LATEST="3.2.3"
+    
 
-
-# 获取 gitbook 的官方版本并安装
-# 通过 gitbook ls-remote 可以列举额 npm 上可以安装的版本号
-# 但是不建议使用 3.2.3 之后的版本，官方为了收费反而阉割了不少功能
-ARG GITBOOK_VERSION=3.2.3
-RUN gitbook fetch $GITBOOK_VERSION
-
+# Install gitbook
+RUN npm install --global gitbook-cli \
+  && gitbook fetch ${GITBOOK_VERSION3_LATEST} \
+  && npm install --global markdownlint-cli \
+  && apt-get update \
+  && apt-get install --no-install-recommends --no-install-suggests -y \
+    sudo \
+    git \
+    vim \
+    calibre \
+    fonts-roboto \
+    bzip2 \
+    ghostscript \
+    jpegoptim \
+    optipng \
+    ca-certificates \
+  && npm install svgexport -g --unsafe-perm \
+  && npm cache clear --force \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /tmp/*
 
 # 定义 Docker 数据卷位置 /gitbook （之后会用于映射到物理硬盘的位置）
 ENV BOOKDIR /gitbook
