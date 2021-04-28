@@ -1,0 +1,18 @@
+{
+  "name": "gitbook-pdf-sample",
+  "version": "1.0.0",
+  "description": "gitbook pdf sample",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wataru Haniyama",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "del": "^3.0.0",
+    "gitbook": "^3.2.3",
+    "gitbook-cli": "^2.3.2",
+    "gulp": "^3.9.1"
+  }
+}
