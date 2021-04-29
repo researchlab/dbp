@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_version = "3.2.16"
 	
 	config.vm.network "private_network", type:"dhcp"
-	$base_name = "k8s-v1.20.0"
+	$base_name = "k8s-v1-20-0"
 	config.vm.define $base_name
 	config.vm.provider "virtualbox" do |vb|
 		vb.name = $base_name 
