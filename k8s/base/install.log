@@ -1,23 +1,26 @@
-Bringing machine 'k8s-v1.20.0' up with 'virtualbox' provider...
-==> k8s-v1.20.0: Importing base box 'roboxes/centos8'...
-[KProgress: 10%[KProgress: 20%[KProgress: 40%[KProgress: 90%[K==> k8s-v1.20.0: Matching MAC address for NAT networking...
-==> k8s-v1.20.0: Checking if box 'roboxes/centos8' version '3.2.16' is up to date...
-==> k8s-v1.20.0: Setting the name of the VM: k8s-v1.20.0
-==> k8s-v1.20.0: Clearing any previously set network interfaces...
-==> k8s-v1.20.0: Preparing network interfaces based on configuration...
-    k8s-v1.20.0: Adapter 1: nat
-    k8s-v1.20.0: Adapter 2: hostonly
-==> k8s-v1.20.0: Forwarding ports...
-    k8s-v1.20.0: 22 (guest) => 2222 (host) (adapter 1)
-==> k8s-v1.20.0: Running 'pre-boot' VM customizations...
-==> k8s-v1.20.0: Booting VM...
-==> k8s-v1.20.0: Waiting for machine to boot. This may take a few minutes...
-    k8s-v1.20.0: SSH address: 127.0.0.1:2222
-    k8s-v1.20.0: SSH username: vagrant
-    k8s-v1.20.0: SSH auth method: private key
-==> k8s-v1.20.0: Machine booted and ready!
-[k8s-v1.20.0] GuestAdditions versions on your host (6.1.18) and guest (5.2.44) do not match.
-Last metadata expiration check: 0:00:43 ago on Tue 27 Apr 2021 06:50:57 AM UTC.
+Bringing machine 'k8s-v1-20-0' up with 'virtualbox' provider...
+==> k8s-v1-20-0: Importing base box 'generic/centos8'...
+[KProgress: 10%[KProgress: 20%[KProgress: 40%[KProgress: 90%[K==> k8s-v1-20-0: Matching MAC address for NAT networking...
+==> k8s-v1-20-0: Checking if box 'generic/centos8' version '3.2.16' is up to date...
+==> k8s-v1-20-0: Setting the name of the VM: k8s-v1-20-0
+==> k8s-v1-20-0: Clearing any previously set network interfaces...
+==> k8s-v1-20-0: Preparing network interfaces based on configuration...
+    k8s-v1-20-0: Adapter 1: nat
+    k8s-v1-20-0: Adapter 2: hostonly
+==> k8s-v1-20-0: Forwarding ports...
+    k8s-v1-20-0: 22 (guest) => 2222 (host) (adapter 1)
+==> k8s-v1-20-0: Running 'pre-boot' VM customizations...
+==> k8s-v1-20-0: Booting VM...
+==> k8s-v1-20-0: Waiting for machine to boot. This may take a few minutes...
+    k8s-v1-20-0: SSH address: 127.0.0.1:2222
+    k8s-v1-20-0: SSH username: vagrant
+    k8s-v1-20-0: SSH auth method: private key
+==> k8s-v1-20-0: Machine booted and ready!
+[k8s-v1-20-0] GuestAdditions versions on your host (6.1.18) and guest (5.2.44) do not match.
+CentOS Linux 8 - AppStream                      4.1 kB/s | 4.3 kB     00:01    
+CentOS Linux 8 - BaseOS                         5.6 kB/s | 3.9 kB     00:00    
+CentOS Linux 8 - Extras                         1.2 kB/s | 1.5 kB     00:01    
+Extra Packages for Enterprise Linux Modular 8 -  10 kB/s | 9.7 kB     00:00    
 Package kernel-devel-4.18.0-240.15.1.el8_3.x86_64 is already installed.
 Package kernel-devel-4.18.0-240.15.1.el8_3.x86_64 is already installed.
 Package gcc-8.3.1-5.1.el8.x86_64 is already installed.
@@ -40,9 +43,10 @@ Install  1 Package
 Total download size: 17 M
 Installed size: 47 M
 Downloading Packages:
-kernel-devel-4.18.0-240.22.1.el8_3.x86_64.rpm   1.2 MB/s |  17 MB     00:14    
+[MIRROR] kernel-devel-4.18.0-240.22.1.el8_3.x86_64.rpm: Curl error (28): Timeout was reached for http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/kernel-devel-4.18.0-240.22.1.el8_3.x86_64.rpm [Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds]
+kernel-devel-4.18.0-240.22.1.el8_3.x86_64.rpm    40 kB/s |  17 MB     07:04    
 --------------------------------------------------------------------------------
-Total                                           1.2 MB/s |  17 MB     00:14     
+Total                                            40 kB/s |  17 MB     07:04     
 Running transaction check
 Transaction check succeeded.
 Running transaction test
@@ -91,257 +95,476 @@ Got different reports about installed GuestAdditions version:
 Virtualbox on your host claims:   5.2.44
 VBoxService inside the vm claims: 6.1.18
 Going on, assuming VBoxService is correct...
-==> k8s-v1.20.0: Checking for guest additions in VM...
-    k8s-v1.20.0: The guest additions on this VM do not match the installed version of
-    k8s-v1.20.0: VirtualBox! In most cases this is fine, but in rare cases it can
-    k8s-v1.20.0: prevent things such as shared folders from working properly. If you see
-    k8s-v1.20.0: shared folder errors, please make sure the guest additions within the
-    k8s-v1.20.0: virtual machine match the version of VirtualBox you have installed on
-    k8s-v1.20.0: your host and reload your VM.
-    k8s-v1.20.0: 
-    k8s-v1.20.0: Guest Additions Version: 5.2.44
-    k8s-v1.20.0: VirtualBox Version: 6.1
-==> k8s-v1.20.0: Setting hostname...
-==> k8s-v1.20.0: Configuring and enabling network interfaces...
-==> k8s-v1.20.0: Running provisioner: shell...
-    k8s-v1.20.0: Running: /var/folders/5q/7gy5r2h91_s477x2g8vn30hc0000gn/T/vagrant-shell20210427-27853-1dymewh.sh
-    k8s-v1.20.0: Failed to set time zone: Failed to update /etc/localtime
-    k8s-v1.20.0: Removed /etc/systemd/system/multi-user.target.wants/firewalld.service.
-    k8s-v1.20.0: Removed /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
-    k8s-v1.20.0: Last metadata expiration check: 0:00:35 ago on Tue 27 Apr 2021 02:53:43 PM CST.
-    k8s-v1.20.0: Package chrony-3.5-1.el8.x86_64 is already installed.
-    k8s-v1.20.0: Dependencies resolved.
-    k8s-v1.20.0: Nothing to do.
-    k8s-v1.20.0: Complete!
-    k8s-v1.20.0: 210 Number of sources = 8
-    k8s-v1.20.0: MS Name/IP address         Stratum Poll Reach LastRx Last sample               
-    k8s-v1.20.0: ===============================================================================
-    k8s-v1.20.0: ^? lomea.g.faelix.net            0   8     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? ntp6.flashdance.cx            0   8     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? ntp1.sul.t-online.de          0   8     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? server1.sim720.co.uk          0   8     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? 2001:da8:a807::25             0   6     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? 2001:1af8:4700:b210::34       0   6     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? time.cloudflare.com           0   6     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0: ^? makaki.miuku.net              0   6     0     -     +0ns[   +0ns] +/-    0ns
-    k8s-v1.20.0:                Local time: Tue 2021-04-27 14:54:22 CST
-    k8s-v1.20.0:            Universal time: Tue 2021-04-27 06:54:22 UTC
-    k8s-v1.20.0:                  RTC time: Tue 2021-04-27 06:54:22
-    k8s-v1.20.0:                 Time zone: UTC (CST, +0800)
-    k8s-v1.20.0: System clock synchronized: no
-    k8s-v1.20.0:               NTP service: active
-    k8s-v1.20.0:           RTC in local TZ: yes
-    k8s-v1.20.0: 
-    k8s-v1.20.0: Warning: The system is configured to read the RTC time in the local time zone.
-    k8s-v1.20.0:          This mode cannot be fully supported. It will create various problems
-    k8s-v1.20.0:          with time zone changes and daylight saving time adjustments. The RTC
-    k8s-v1.20.0:          time is never updated, it relies on external facilities to maintain it.
-    k8s-v1.20.0:          If at all possible, use RTC in UTC by calling
-    k8s-v1.20.0:          'timedatectl set-local-rtc 0'.
-    k8s-v1.20.0: net.bridge.bridge-nf-call-ip6tables = 1
-    k8s-v1.20.0: net.bridge.bridge-nf-call-iptables = 1
-    k8s-v1.20.0: net.ipv4.ip_forward = 1
-    k8s-v1.20.0: net.ipv6.conf.all.disable_ipv6 = 1
-    k8s-v1.20.0: vm.swappiness = 0
-    k8s-v1.20.0: The unit files have no installation config (WantedBy, RequiredBy, Also, Alias
-    k8s-v1.20.0: settings in the [Install] section, and DefaultInstance for template units).
-    k8s-v1.20.0: This means they are not meant to be enabled using systemctl.
-    k8s-v1.20.0: Possible reasons for having this kind of units are:
-    k8s-v1.20.0: 1) A unit may be statically enabled by being symlinked from another unit's
-    k8s-v1.20.0:    .wants/ or .requires/ directory.
-    k8s-v1.20.0: 2) A unit's purpose may be to act as a helper for some other unit which has
-    k8s-v1.20.0:    a requirement dependency on it.
-    k8s-v1.20.0: 3) A unit may be started when needed via activation (socket, path, timer,
-    k8s-v1.20.0:    D-Bus, udev, scripted systemctl call, ...).
-    k8s-v1.20.0: 4) In case of template units, the unit is meant to be enabled with some
-    k8s-v1.20.0:    instance name specified.
-    k8s-v1.20.0: Job for systemd-modules-load.service failed because the control process exited with error code.
-    k8s-v1.20.0: See "systemctl status systemd-modules-load.service" and "journalctl -xe" for details.
-    k8s-v1.20.0: ip_vs_sh               16384  0
-    k8s-v1.20.0: ip_vs_wrr              16384  0
-    k8s-v1.20.0: ip_vs_rr               16384  0
-    k8s-v1.20.0: ip_vs                 172032  6 ip_vs_rr,ip_vs_sh,ip_vs_wrr
-    k8s-v1.20.0: nf_conntrack          172032  3 nf_nat,nft_ct,ip_vs
-    k8s-v1.20.0: nf_defrag_ipv6         20480  2 nf_conntrack,ip_vs
-    k8s-v1.20.0: libcrc32c              16384  4 nf_conntrack,nf_nat,xfs,ip_vs
-    k8s-v1.20.0: Last metadata expiration check: 0:00:40 ago on Tue 27 Apr 2021 02:53:43 PM CST.
-    k8s-v1.20.0: Package ipset-7.1-1.el8.x86_64 is already installed.
-    k8s-v1.20.0: Dependencies resolved.
-    k8s-v1.20.0: ================================================================================
-    k8s-v1.20.0:  Package          Architecture    Version              Repository          Size
-    k8s-v1.20.0: ================================================================================
-    k8s-v1.20.0: Installing:
-    k8s-v1.20.0:  ipvsadm          x86_64          1.31-1.el8           appstream           59 k
-    k8s-v1.20.0: 
-    k8s-v1.20.0: Transaction Summary
-    k8s-v1.20.0: ================================================================================
-    k8s-v1.20.0: Install  1 Package
-    k8s-v1.20.0: Total download size: 59 k
-    k8s-v1.20.0: Installed size: 86 k
-    k8s-v1.20.0: Downloading Packages:
-    k8s-v1.20.0: ipvsadm-1.31-1.el8.x86_64.rpm                    35 kB/s |  59 kB     00:01    
-    k8s-v1.20.0: --------------------------------------------------------------------------------
-    k8s-v1.20.0: Total                                            35 kB/s |  59 kB     00:01     
-    k8s-v1.20.0: Running transaction check
-    k8s-v1.20.0: Transaction check succeeded.
-    k8s-v1.20.0: Running transaction test
-    k8s-v1.20.0: Transaction test succeeded.
-    k8s-v1.20.0: Running transaction
-    k8s-v1.20.0:   Preparing        :                                                        1/1
-    k8s-v1.20.0:  
-    k8s-v1.20.0:   Installing       : ipvsadm-1.31-1.el8.x86_64                              1/1
-    k8s-v1.20.0:  
-    k8s-v1.20.0:   Running scriptlet: ipvsadm-1.31-1.el8.x86_64                              1/1
-    k8s-v1.20.0:  
-    k8s-v1.20.0:   Verifying        : ipvsadm-1.31-1.el8.x86_64                              1/1
-    k8s-v1.20.0:  
-    k8s-v1.20.0: 
-    k8s-v1.20.0: Installed:
-    k8s-v1.20.0:   ipvsadm-1.31-1.el8.x86_64                                                     
-    k8s-v1.20.0: 
-    k8s-v1.20.0: Complete!
-    k8s-v1.20.0: Last metadata expiration check: 0:00:43 ago on Tue 27 Apr 2021 02:53:43 PM CST.
-    k8s-v1.20.0: Package yum-utils-4.0.17-5.el8.noarch is already installed.
-    k8s-v1.20.0: No match for argument: device-mapper-persisten-data
-    k8s-v1.20.0: Package lvm2-8:2.03.09-5.el8.x86_64 is already installed.
-    k8s-v1.20.0: Package wget-1.19.5-10.el8.x86_64 is already installed.
-    k8s-v1.20.0: Package curl-7.61.1-14.el8_3.1.x86_64 is already installed.
-    k8s-v1.20.0: Package vim-enhanced-2:8.0.1763-15.el8.x86_64 is already installed.
-    k8s-v1.20.0: Package net-tools-2.0-0.52.20160912git.el8.x86_64 is already installed.
-    k8s-v1.20.0: Package telnet-1:0.17-73.el8_1.1.x86_64 is already installed.
-    k8s-v1.20.0: Package bind-utils-32:9.11.20-5.el8_3.1.x86_64 is already installed.
-    k8s-v1.20.0: Package kmod-25-16.el8.x86_64 is already installed.
-    k8s-v1.20.0: No match for argument: ceph-common
-    k8s-v1.20.0: Package dos2unix-7.4.0-3.el8.x86_64 is already installed.
-    k8s-v1.20.0: Error: Unable to find a match: device-mapper-persisten-data ceph-common
-    k8s-v1.20.0: --2021-04-27 14:54:26--  https://download.docker.com/linux/centos/docker-ce.repo
-    k8s-v1.20.0: Resolving download.docker.com (download.docker.com)... 
-    k8s-v1.20.0: 13.224.161.89, 13.224.161.112, 13.224.161.117, ...
-    k8s-v1.20.0: Connecting to download.docker.com (download.docker.com)|13.224.161.89|:443... 
-    k8s-v1.20.0: connected.
-    k8s-v1.20.0: HTTP request sent, awaiting response... 
-    k8s-v1.20.0: 200 OK
-    k8s-v1.20.0: Length: 1919 (1.9K) [binary/octet-stream]
-    k8s-v1.20.0: Saving to: ‘/etc/yum.repos.d/docker-ce.repo’
-    k8s-v1.20.0: 
-    k8s-v1.20.0:      0K .                                                     100% 3.21M=0.001s
-    k8s-v1.20.0: 2021-04-27 14:54:27 (3.21 MB/s) - ‘/etc/yum.repos.d/docker-ce.repo’ saved [1919/1919]
-    k8s-v1.20.0: usage: yum makecache [-c [config file]] [-q] [-v] [--version]
-    k8s-v1.20.0:                      [--installroot [path]] [--nodocs] [--noplugins]
-    k8s-v1.20.0:                      [--enableplugin [plugin]] [--disableplugin [plugin]]
-    k8s-v1.20.0:                      [--releasever RELEASEVER] [--setopt SETOPTS]
-    k8s-v1.20.0:                      [--skip-broken] [-h] [--allowerasing] [-b | --nobest]
-    k8s-v1.20.0:                      [-C] [-R [minutes]] [-d [debug level]] [--debugsolver]
-    k8s-v1.20.0:                      [--showduplicates] [-e ERRORLEVEL] [--obsoletes]
-    k8s-v1.20.0:                      [--rpmverbosity [debug level name]] [-y] [--assumeno]
-    k8s-v1.20.0:                      [--enablerepo [repo]] [--disablerepo [repo] | --repo
-    k8s-v1.20.0:                      [repo]] [--enable | --disable] [-x [package]]
-    k8s-v1.20.0:                      [--disableexcludes [repo]] [--repofrompath [repo,path]]
-    k8s-v1.20.0:                      [--noautoremove] [--nogpgcheck] [--color COLOR]
-    k8s-v1.20.0:                      [--refresh] [-4] [-6] [--destdir DESTDIR]
-    k8s-v1.20.0:                      [--downloadonly] [--comment COMMENT] [--bugfix]
-    k8s-v1.20.0:                      [--enhancement] [--newpackage] [--security]
-    k8s-v1.20.0:                      [--advisory ADVISORY] [--bz BUGZILLA] [--cve CVES]
-    k8s-v1.20.0:                      [--sec-severity {Critical,Important,Moderate,Low}]
-    k8s-v1.20.0:                      [--forcearch ARCH] [--timer]
-    k8s-v1.20.0: yum makecache: error: argument timer: invalid choice: 'fast' (choose from 'timer')
-    k8s-v1.20.0: Docker CE Stable - x86_64                       4.3 kB/s |  12 kB     00:02    
-    k8s-v1.20.0: Kubernetes                                      1.4 kB/s | 844  B     00:00    
-    k8s-v1.20.0: Kubernetes                                       11 kB/s | 3.4 kB     00:00    
-    k8s-v1.20.0: Importing GPG key 0x307EA071:
-    k8s-v1.20.0:  Userid     : "Rapture Automatic Signing Key (cloud-rapture-signing-key-2021-03-01-08_01_09.pub)"
-    k8s-v1.20.0:  Fingerprint: 7F92 E05B 3109 3BEF 5A3C 2D38 FEEA 9169 307E A071
-    k8s-v1.20.0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
-    k8s-v1.20.0: Importing GPG key 0x836F4BEB:
-    k8s-v1.20.0:  Userid     : "gLinux Rapture Automatic Signing Key (//depot/google3/production/borg/cloud-rapture/keys/cloud-rapture-pubkeys/cloud-rapture-signing-key-2020-12-03-16_08_05.pub) <glinux-team@google.com>"
-    k8s-v1.20.0:  Fingerprint: 59FE 0256 8272 69DC 8157 8F92 8B57 C5C2 836F 4BEB
-    k8s-v1.20.0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
-    k8s-v1.20.0: Kubernetes                                      4.2 kB/s | 975  B     00:00    
-    k8s-v1.20.0: Importing GPG key 0x3E1BA8D5:
-    k8s-v1.20.0:  Userid     : "Google Cloud Packages RPM Signing Key <gc-team@google.com>"
-    k8s-v1.20.0:  Fingerprint: 3749 E1BA 95A8 6CE0 5454 6ED2 F09C 394C 3E1B A8D5
-    k8s-v1.20.0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-    k8s-v1.20.0: Kubernetes                                      112 kB/s | 119 kB     00:01    
-    k8s-v1.20.0: Dependencies resolved.
-    k8s-v1.20.0: =======================================================================================================
-    k8s-v1.20.0:  Package                        Arch    Version                                 Repository         Size
-    k8s-v1.20.0: =======================================================================================================
-    k8s-v1.20.0: Installing:
-    k8s-v1.20.0:  docker-ce                      x86_64  3:20.10.6-3.el8                         docker-ce-stable   27 M
-    k8s-v1.20.0:  kubeadm                        x86_64  1.20.0-0                                kubernetes        8.3 M
-    k8s-v1.20.0:  kubectl                        x86_64  1.20.0-0                                kubernetes        8.5 M
-    k8s-v1.20.0:  kubelet                        x86_64  1.20.0-0                                kubernetes         20 M
-    k8s-v1.20.0: Installing dependencies:
-    k8s-v1.20.0:  checkpolicy                    x86_64  2.9-1.el8                               baseos            348 k
-    k8s-v1.20.0:  conntrack-tools                x86_64  1.4.4-10.el8                            baseos            204 k
-    k8s-v1.20.0:  container-selinux              noarch  2:2.155.0-1.module_el8.3.0+699+d61d9c41 appstream          51 k
-    k8s-v1.20.0:  containerd.io                  x86_64  1.4.4-3.1.el8                           docker-ce-stable   33 M
-    k8s-v1.20.0:  cri-tools                      x86_64  1.13.0-0                                kubernetes        5.1 M
-    k8s-v1.20.0:  docker-ce-cli                  x86_64  1:20.10.6-3.el8                         docker-ce-stable   33 M
-    k8s-v1.20.0:  docker-ce-rootless-extras      x86_64  20.10.6-3.el8                           docker-ce-stable  9.2 M
-    k8s-v1.20.0:  docker-scan-plugin             x86_64  0.7.0-3.el8                             docker-ce-stable  4.2 M
-    k8s-v1.20.0:  fuse-common                    x86_64  3.2.1-12.el8                            baseos             21 k
-    k8s-v1.20.0:  fuse-overlayfs                 x86_64  1.3.0-2.module_el8.3.0+699+d61d9c41     appstream          72 k
-    k8s-v1.20.0:  fuse3                          x86_64  3.2.1-12.el8                            baseos             50 k
-    k8s-v1.20.0:  fuse3-libs                     x86_64  3.2.1-12.el8                            baseos             94 k
-    k8s-v1.20.0:  kubernetes-cni                 x86_64  0.8.7-0                                 kubernetes         19 M
-    k8s-v1.20.0:  libcgroup                      x86_64  0.41-19.el8                             baseos             70 k
-    k8s-v1.20.0:  libnetfilter_cthelper          x86_64  1.0.0-15.el8                            baseos             24 k
-    k8s-v1.20.0:  libnetfilter_cttimeout         x86_64  1.0.0-11.el8                            baseos             24 k
-    k8s-v1.20.0:  libnetfilter_queue             x86_64  1.0.4-3.el8                             baseos             31 k
-    k8s-v1.20.0:  libslirp                       x86_64  4.3.1-1.module_el8.3.0+475+c50ce30b     appstream          69 k
-    k8s-v1.20.0:  policycoreutils-python-utils   noarch  2.9-9.el8                               baseos            251 k
-    k8s-v1.20.0:  python3-audit                  x86_64  3.0-0.17.20191104git1c2f876.el8         baseos             86 k
-    k8s-v1.20.0:  python3-libsemanage            x86_64  2.9-3.el8                               baseos            127 k
-    k8s-v1.20.0:  python3-policycoreutils        noarch  2.9-9.el8                               baseos            2.2 M
-    k8s-v1.20.0:  python3-setools                x86_64  4.3.0-2.el8                             baseos            626 k
-    k8s-v1.20.0:  slirp4netns                    x86_64  1.1.8-1.module_el8.3.0+699+d61d9c41     appstream          51 k
-    k8s-v1.20.0:  socat                          x86_64  1.7.3.3-2.el8                           appstream         302 k
-    k8s-v1.20.0: Enabling module streams:
-    k8s-v1.20.0:  container-tools                        rhel8                                                          
-    k8s-v1.20.0: 
-    k8s-v1.20.0: Transaction Summary
-    k8s-v1.20.0: =======================================================================================================
-    k8s-v1.20.0: Install  29 Packages
-    k8s-v1.20.0: Total download size: 172 M
-    k8s-v1.20.0: Installed size: 711 M
-    k8s-v1.20.0: Downloading Packages:
-    k8s-v1.20.0: (1/29): container-selinux-2.155.0-1.module_el8. 136 kB/s |  51 kB     00:00    
-    k8s-v1.20.0: (2/29): libslirp-4.3.1-1.module_el8.3.0+475+c50 178 kB/s |  69 kB     00:00    
-    k8s-v1.20.0: (3/29): slirp4netns-1.1.8-1.module_el8.3.0+699+ 471 kB/s |  51 kB     00:00    
-    k8s-v1.20.0: (4/29): fuse-overlayfs-1.3.0-2.module_el8.3.0+6 133 kB/s |  72 kB     00:00    
-    k8s-v1.20.0: (5/29): socat-1.7.3.3-2.el8.x86_64.rpm          638 kB/s | 302 kB     00:00    
-    k8s-v1.20.0: (6/29): checkpolicy-2.9-1.el8.x86_64.rpm        811 kB/s | 348 kB     00:00    
-    k8s-v1.20.0: (7/29): fuse-common-3.2.1-12.el8.x86_64.rpm     240 kB/s |  21 kB     00:00    
-    k8s-v1.20.0: (8/29): fuse3-3.2.1-12.el8.x86_64.rpm           512 kB/s |  50 kB     00:00    
-    k8s-v1.20.0: (9/29): fuse3-libs-3.2.1-12.el8.x86_64.rpm      798 kB/s |  94 kB     00:00    
-    k8s-v1.20.0: (10/29): libcgroup-0.41-19.el8.x86_64.rpm       649 kB/s |  70 kB     00:00    
-    k8s-v1.20.0: (11/29): libnetfilter_cthelper-1.0.0-15.el8.x86 299 kB/s |  24 kB     00:00    
-    k8s-v1.20.0: (12/29): libnetfilter_cttimeout-1.0.0-11.el8.x8 315 kB/s |  24 kB     00:00    
-    k8s-v1.20.0: (13/29): libnetfilter_queue-1.0.4-3.el8.x86_64. 374 kB/s |  31 kB     00:00    
-    k8s-v1.20.0: (14/29): conntrack-tools-1.4.4-10.el8.x86_64.rp 269 kB/s | 204 kB     00:00    
-    k8s-v1.20.0: (15/29): python3-audit-3.0-0.17.20191104git1c2f 770 kB/s |  86 kB     00:00    
-    k8s-v1.20.0: (16/29): policycoreutils-python-utils-2.9-9.el8 594 kB/s | 251 kB     00:00    
-    k8s-v1.20.0: (17/29): python3-libsemanage-2.9-3.el8.x86_64.r 247 kB/s | 127 kB     00:00    
-    k8s-v1.20.0: (18/29): python3-setools-4.3.0-2.el8.x86_64.rpm 606 kB/s | 626 kB     00:01    
-    k8s-v1.20.0: (19/29): python3-policycoreutils-2.9-9.el8.noar 1.1 MB/s | 2.2 MB     00:02    
-    k8s-v1.20.0: [MIRROR] containerd.io-1.4.4-3.1.el8.x86_64.rpm: Curl error (28): Timeout was reached for https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/8/x86_64/stable/Packages/containerd.io-1.4.4-3.1.el8.x86_64.rpm [Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds]
-    k8s-v1.20.0: (20/29): 14bfe6e75a9efc8eca3f638eb22c7e2ce759c6 1.5 MB/s | 5.1 MB     00:03    
-    k8s-v1.20.0: [MIRROR] docker-ce-cli-20.10.6-3.el8.x86_64.rpm: Curl error (28): Timeout was reached for https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/8/x86_64/stable/Packages/docker-ce-cli-20.10.6-3.el8.x86_64.rpm [Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds]
-    k8s-v1.20.0: (21/29): 91e0f0a3a10ab757acf9611e8b81e1b272d76a 1.8 MB/s | 8.3 MB     00:04    
-    k8s-v1.20.0: [MIRROR] docker-ce-20.10.6-3.el8.x86_64.rpm: Curl error (28): Timeout was reached for https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/8/x86_64/stable/Packages/docker-ce-20.10.6-3.el8.x86_64.rpm [Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds]
-    k8s-v1.20.0: (22/29): 1281489661f7627c8b175b789d300fe3c703c8 847 kB/s | 8.5 MB     00:10    
-    k8s-v1.20.0: (23/29): 268447fe89ce41034f21c7a6c73290bd2e1920 976 kB/s |  20 MB     00:21    
-    k8s-v1.20.0: (24/29): db7cb5cb0b3f6875f54d10f02e625573988e3e 1.1 MB/s |  19 MB     00:16    
-    k8s-v1.20.0: [MIRROR] containerd.io-1.4.4-3.1.el8.x86_64.rpm: Curl error (28): Timeout was reached for https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/8/x86_64/stable/Packages/containerd.io-1.4.4-3.1.el8.x86_64.rpm [Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds]
-    k8s-v1.20.0: [FAILED] containerd.io-1.4.4-3.1.el8.x86_64.rpm: No more mirrors to try - All mirrors were already tried without success
-    k8s-v1.20.0: 
-    k8s-v1.20.0: The downloaded packages were saved in cache until the next successful transaction.
-    k8s-v1.20.0: You can remove cached packages by executing 'yum clean packages'.
-    k8s-v1.20.0: Error: Error downloading packages:
-    k8s-v1.20.0:   Cannot download Packages/containerd.io-1.4.4-3.1.el8.x86_64.rpm: All mirrors were tried
-    k8s-v1.20.0: /tmp/vagrant-shell: line 103: /etc/docker/daemon.json: No such file or directory
-    k8s-v1.20.0: Failed to start docker.service: Unit docker.service not found.
-    k8s-v1.20.0: Failed to enable unit: Unit file docker.service does not exist.
-    k8s-v1.20.0: Failed to start kubelet.service: Unit kubelet.service not found.
-    k8s-v1.20.0: Failed to enable unit: Unit file kubelet.service does not exist.
+==> k8s-v1-20-0: Checking for guest additions in VM...
+    k8s-v1-20-0: The guest additions on this VM do not match the installed version of
+    k8s-v1-20-0: VirtualBox! In most cases this is fine, but in rare cases it can
+    k8s-v1-20-0: prevent things such as shared folders from working properly. If you see
+    k8s-v1-20-0: shared folder errors, please make sure the guest additions within the
+    k8s-v1-20-0: virtual machine match the version of VirtualBox you have installed on
+    k8s-v1-20-0: your host and reload your VM.
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Guest Additions Version: 5.2.44
+    k8s-v1-20-0: VirtualBox Version: 6.1
+==> k8s-v1-20-0: Setting hostname...
+==> k8s-v1-20-0: Configuring and enabling network interfaces...
+==> k8s-v1-20-0: Running provisioner: shell...
+    k8s-v1-20-0: Running: /var/folders/5q/7gy5r2h91_s477x2g8vn30hc0000gn/T/vagrant-shell20210428-78399-1m0rdm.sh
+    k8s-v1-20-0: Removed /etc/systemd/system/multi-user.target.wants/firewalld.service.
+    k8s-v1-20-0: Removed /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+    k8s-v1-20-0: Last metadata expiration check: 0:09:43 ago on Wed 28 Apr 2021 11:10:29 AM CST.
+    k8s-v1-20-0: Package chrony-3.5-1.el8.x86_64 is already installed.
+    k8s-v1-20-0: Dependencies resolved.
+    k8s-v1-20-0: Nothing to do.
+    k8s-v1-20-0: Complete!
+    k8s-v1-20-0: 210 Number of sources = 8
+    k8s-v1-20-0: MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+    k8s-v1-20-0: ===============================================================================
+    k8s-v1-20-0: ^? ntp8.flashdance.cx            0   9     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? 2001:1af8:4700:b210::34       0   8     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? 119.28.183.184                0   9     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? electrode.felixc.at           0   9     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? atl-ntp2-0.mattnordhoff.>     0   6     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? ntp1.wirehive.net             0   6     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? mail.light-speed.de           0   6     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0: ^? 2a01:4f8:192:4022::2          0   6     0     -     +0ns[   +0ns] +/-    0ns
+    k8s-v1-20-0:                Local time: Wed 2021-04-28 11:20:16 CST
+    k8s-v1-20-0:            Universal time: Wed 2021-04-28 03:20:16 UTC
+    k8s-v1-20-0:                  RTC time: Wed 2021-04-28 03:20:16
+    k8s-v1-20-0:                 Time zone: UTC (CST, +0800)
+    k8s-v1-20-0: System clock synchronized: no
+    k8s-v1-20-0:               NTP service: active
+    k8s-v1-20-0:           RTC in local TZ: yes
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Warning: The system is configured to read the RTC time in the local time zone.
+    k8s-v1-20-0:          This mode cannot be fully supported. It will create various problems
+    k8s-v1-20-0:          with time zone changes and daylight saving time adjustments. The RTC
+    k8s-v1-20-0:          time is never updated, it relies on external facilities to maintain it.
+    k8s-v1-20-0:          If at all possible, use RTC in UTC by calling
+    k8s-v1-20-0:          'timedatectl set-local-rtc 0'.
+    k8s-v1-20-0: net.bridge.bridge-nf-call-iptables = 1	# 节点上的iptables能够正确地查看桥接流量
+    k8s-v1-20-0: net.bridge.bridge-nf-call-ip6tables = 1	# 节点上的iptables能够正确地查看桥接流量
+    k8s-v1-20-0: net.ipv4.ip_forward = 1 # 主要是目的是 当linux主机有多个网卡时一个网卡收到的信息是否能够传递给其他的网卡 如果设置成1 的话 可以进行数据包转发 可以实现VxLAN 等功能, 如果设置为0 则不能转发ip
+    k8s-v1-20-0: net.ipv6.conf.all.disable_ipv6 = 1
+    k8s-v1-20-0: vm.swappiness = 0
+    k8s-v1-20-0: The unit files have no installation config (WantedBy, RequiredBy, Also, Alias
+    k8s-v1-20-0: settings in the [Install] section, and DefaultInstance for template units).
+    k8s-v1-20-0: This means they are not meant to be enabled using systemctl.
+    k8s-v1-20-0: Possible reasons for having this kind of units are:
+    k8s-v1-20-0: 1) A unit may be statically enabled by being symlinked from another unit's
+    k8s-v1-20-0:    .wants/ or .requires/ directory.
+    k8s-v1-20-0: 2) A unit's purpose may be to act as a helper for some other unit which has
+    k8s-v1-20-0:    a requirement dependency on it.
+    k8s-v1-20-0: 3) A unit may be started when needed via activation (socket, path, timer,
+    k8s-v1-20-0:    D-Bus, udev, scripted systemctl call, ...).
+    k8s-v1-20-0: 4) In case of template units, the unit is meant to be enabled with some
+    k8s-v1-20-0:    instance name specified.
+    k8s-v1-20-0: ip_vs_sh               16384  0
+    k8s-v1-20-0: ip_vs_wrr              16384  0
+    k8s-v1-20-0: ip_vs_rr               16384  0
+    k8s-v1-20-0: ip_vs                 172032  6 ip_vs_rr,ip_vs_sh,ip_vs_wrr
+    k8s-v1-20-0: nf_conntrack          172032  3 nf_nat,nft_ct,ip_vs
+    k8s-v1-20-0: nf_defrag_ipv6         20480  2 nf_conntrack,ip_vs
+    k8s-v1-20-0: libcrc32c              16384  4 nf_conntrack,nf_nat,xfs,ip_vs
+    k8s-v1-20-0: Last metadata expiration check: 0:09:48 ago on Wed 28 Apr 2021 11:10:29 AM CST.
+    k8s-v1-20-0: Package ipset-7.1-1.el8.x86_64 is already installed.
+    k8s-v1-20-0: Dependencies resolved.
+    k8s-v1-20-0: ================================================================================
+    k8s-v1-20-0:  Package          Architecture    Version              Repository          Size
+    k8s-v1-20-0: ================================================================================
+    k8s-v1-20-0: Installing:
+    k8s-v1-20-0:  ipvsadm          x86_64          1.31-1.el8           appstream           59 k
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Transaction Summary
+    k8s-v1-20-0: ================================================================================
+    k8s-v1-20-0: Install  1 Package
+    k8s-v1-20-0: Total download size: 59 k
+    k8s-v1-20-0: Installed size: 86 k
+    k8s-v1-20-0: Downloading Packages:
+    k8s-v1-20-0: ipvsadm-1.31-1.el8.x86_64.rpm                    25 kB/s |  59 kB     00:02    
+    k8s-v1-20-0: --------------------------------------------------------------------------------
+    k8s-v1-20-0: Total                                            25 kB/s |  59 kB     00:02     
+    k8s-v1-20-0: Running transaction check
+    k8s-v1-20-0: Transaction check succeeded.
+    k8s-v1-20-0: Running transaction test
+    k8s-v1-20-0: Transaction test succeeded.
+    k8s-v1-20-0: Running transaction
+    k8s-v1-20-0:   Preparing        :                                                        1/1
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : ipvsadm-1.31-1.el8.x86_64                              1/1
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: ipvsadm-1.31-1.el8.x86_64                              1/1
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Verifying        : ipvsadm-1.31-1.el8.x86_64                              1/1
+    k8s-v1-20-0:  
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Installed:
+    k8s-v1-20-0:   ipvsadm-1.31-1.el8.x86_64                                                     
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Complete!
+    k8s-v1-20-0: --2021-04-28 11:20:21--  https://download.docker.com/linux/centos/docker-ce.repo
+    k8s-v1-20-0: Resolving download.docker.com (download.docker.com)... 
+    k8s-v1-20-0: 13.224.161.89, 13.224.161.117, 13.224.161.112, ...
+    k8s-v1-20-0: Connecting to download.docker.com (download.docker.com)|13.224.161.89|:443... 
+    k8s-v1-20-0: connected.
+    k8s-v1-20-0: HTTP request sent, awaiting response... 
+    k8s-v1-20-0: 200 OK
+    k8s-v1-20-0: Length: 1919 (1.9K) [binary/octet-stream]
+    k8s-v1-20-0: Saving to: ‘/etc/yum.repos.d/docker-ce.repo’
+    k8s-v1-20-0: 
+    k8s-v1-20-0:      0K .                                                     100% 80.2M=0s
+    k8s-v1-20-0: 2021-04-28 11:20:22 (80.2 MB/s) - ‘/etc/yum.repos.d/docker-ce.repo’ saved [1919/1919]
+    k8s-v1-20-0: Docker CE Stable - x86_64                       4.1 kB/s |  12 kB     00:02    
+    k8s-v1-20-0: Package yum-utils-4.0.17-5.el8.noarch is already installed.
+    k8s-v1-20-0: Package device-mapper-persistent-data-0.8.5-4.el8.x86_64 is already installed.
+    k8s-v1-20-0: Package lvm2-8:2.03.09-5.el8.x86_64 is already installed.
+    k8s-v1-20-0: Package wget-1.19.5-10.el8.x86_64 is already installed.
+    k8s-v1-20-0: Package curl-7.61.1-14.el8_3.1.x86_64 is already installed.
+    k8s-v1-20-0: Package vim-enhanced-2:8.0.1763-15.el8.x86_64 is already installed.
+    k8s-v1-20-0: Package net-tools-2.0-0.52.20160912git.el8.x86_64 is already installed.
+    k8s-v1-20-0: Package telnet-1:0.17-73.el8_1.1.x86_64 is already installed.
+    k8s-v1-20-0: Package bind-utils-32:9.11.20-5.el8_3.1.x86_64 is already installed.
+    k8s-v1-20-0: Dependencies resolved.
+    k8s-v1-20-0: ================================================================================
+    k8s-v1-20-0:  Package                    Arch       Version              Repository     Size
+    k8s-v1-20-0: ================================================================================
+    k8s-v1-20-0: Installing:
+    k8s-v1-20-0:  conntrack-tools            x86_64     1.4.4-10.el8         baseos        204 k
+    k8s-v1-20-0:  tcpdump                    x86_64     14:4.9.3-1.el8       appstream     452 k
+    k8s-v1-20-0: Installing dependencies:
+    k8s-v1-20-0:  libnetfilter_cthelper      x86_64     1.0.0-15.el8         baseos         24 k
+    k8s-v1-20-0:  libnetfilter_cttimeout     x86_64     1.0.0-11.el8         baseos         24 k
+    k8s-v1-20-0:  libnetfilter_queue         x86_64     1.0.4-3.el8          baseos         31 k
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Transaction Summary
+    k8s-v1-20-0: ================================================================================
+    k8s-v1-20-0: Install  5 Packages
+    k8s-v1-20-0: Total download size: 735 k
+    k8s-v1-20-0: Installed size: 1.8 M
+    k8s-v1-20-0: Downloading Packages:
+    k8s-v1-20-0: (1/5): libnetfilter_cthelper-1.0.0-15.el8.x86_6  44 kB/s |  24 kB     00:00    
+    k8s-v1-20-0: (2/5): libnetfilter_cttimeout-1.0.0-11.el8.x86_ 133 kB/s |  24 kB     00:00    
+    k8s-v1-20-0: (3/5): libnetfilter_queue-1.0.4-3.el8.x86_64.rp 175 kB/s |  31 kB     00:00    
+    k8s-v1-20-0: (4/5): conntrack-tools-1.4.4-10.el8.x86_64.rpm  202 kB/s | 204 kB     00:01    
+    k8s-v1-20-0: (5/5): tcpdump-4.9.3-1.el8.x86_64.rpm           350 kB/s | 452 kB     00:01    
+    k8s-v1-20-0: --------------------------------------------------------------------------------
+    k8s-v1-20-0: Total                                           569 kB/s | 735 kB     00:01     
+    k8s-v1-20-0: Running transaction check
+    k8s-v1-20-0: Transaction check succeeded.
+    k8s-v1-20-0: Running transaction test
+    k8s-v1-20-0: Transaction test succeeded.
+    k8s-v1-20-0: Running transaction
+    k8s-v1-20-0:   Preparing        :                                                        1/1
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : libnetfilter_queue-1.0.4-3.el8.x86_64                  1/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: libnetfilter_queue-1.0.4-3.el8.x86_64                  1/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : libnetfilter_cttimeout-1.0.0-11.el8.x86_64             2/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: libnetfilter_cttimeout-1.0.0-11.el8.x86_64             2/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : libnetfilter_cthelper-1.0.0-15.el8.x86_64              3/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: libnetfilter_cthelper-1.0.0-15.el8.x86_64              3/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : conntrack-tools-1.4.4-10.el8.x86_64                    4/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: conntrack-tools-1.4.4-10.el8.x86_64                    4/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: tcpdump-14:4.9.3-1.el8.x86_64                          5/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : tcpdump-14:4.9.3-1.el8.x86_64                          5/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: tcpdump-14:4.9.3-1.el8.x86_64                          5/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Verifying        : tcpdump-14:4.9.3-1.el8.x86_64                          1/5 
+    k8s-v1-20-0:   Verifying        : conntrack-tools-1.4.4-10.el8.x86_64                    2/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Verifying        : libnetfilter_cthelper-1.0.0-15.el8.x86_64              3/5 
+    k8s-v1-20-0:   Verifying        : libnetfilter_cttimeout-1.0.0-11.el8.x86_64             4/5 
+    k8s-v1-20-0:   Verifying        : libnetfilter_queue-1.0.4-3.el8.x86_64                  5/5
+    k8s-v1-20-0:  
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Installed:
+    k8s-v1-20-0:   conntrack-tools-1.4.4-10.el8.x86_64                                           
+    k8s-v1-20-0:   libnetfilter_cthelper-1.0.0-15.el8.x86_64                                     
+    k8s-v1-20-0:   libnetfilter_cttimeout-1.0.0-11.el8.x86_64                                    
+    k8s-v1-20-0:   libnetfilter_queue-1.0.4-3.el8.x86_64                                         
+    k8s-v1-20-0:   tcpdump-14:4.9.3-1.el8.x86_64                                                 
+    k8s-v1-20-0: Complete!
+    k8s-v1-20-0: CentOS Linux 8 - AppStream                      7.3 kB/s | 4.3 kB     00:00    
+    k8s-v1-20-0: CentOS Linux 8 - BaseOS                          15 kB/s | 3.9 kB     00:00    
+    k8s-v1-20-0: CentOS Linux 8 - Extras                         1.6 kB/s | 1.5 kB     00:00    
+    k8s-v1-20-0: Docker CE Stable - x86_64                       2.2 kB/s | 3.5 kB     00:01    
+    k8s-v1-20-0: Extra Packages for Enterprise Linux Modular 8 - 8.5 kB/s | 9.7 kB     00:01    
+    k8s-v1-20-0: Extra Packages for Enterprise Linux 8 - x86_64  6.0 kB/s | 6.1 kB     00:01    
+    k8s-v1-20-0: Extra Packages for Enterprise Linux 8 - x86_64  915 kB/s | 9.3 MB     00:10    
+    k8s-v1-20-0: Kubernetes                                      452  B/s | 844  B     00:01    
+    k8s-v1-20-0: Kubernetes                                       13 kB/s | 3.4 kB     00:00    
+    k8s-v1-20-0: Importing GPG key 0x307EA071:
+    k8s-v1-20-0:  Userid     : "Rapture Automatic Signing Key (cloud-rapture-signing-key-2021-03-01-08_01_09.pub)"
+    k8s-v1-20-0:  Fingerprint: 7F92 E05B 3109 3BEF 5A3C 2D38 FEEA 9169 307E A071
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+    k8s-v1-20-0: Is this ok [y/N]: Is this ok [y/N]: 
+    k8s-v1-20-0: Importing GPG key 0x836F4BEB:
+    k8s-v1-20-0:  Userid     : "gLinux Rapture Automatic Signing Key (//depot/google3/production/borg/cloud-rapture/keys/cloud-rapture-pubkeys/cloud-rapture-signing-key-2020-12-03-16_08_05.pub) <glinux-team@google.com>"
+    k8s-v1-20-0:  Fingerprint: 59FE 0256 8272 69DC 8157 8F92 8B57 C5C2 836F 4BEB
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+    k8s-v1-20-0: Is this ok [y/N]: 
+    k8s-v1-20-0: Kubernetes                                      4.9 kB/s | 975  B     00:00    
+    k8s-v1-20-0: Importing GPG key 0x3E1BA8D5:
+    k8s-v1-20-0:  Userid     : "Google Cloud Packages RPM Signing Key <gc-team@google.com>"
+    k8s-v1-20-0:  Fingerprint: 3749 E1BA 95A8 6CE0 5454 6ED2 F09C 394C 3E1B A8D5
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+    k8s-v1-20-0: Is this ok [y/N]: 
+    k8s-v1-20-0: Kubernetes                                      2.3 kB/s | 844  B     00:00    
+    k8s-v1-20-0: Error: Failed to download metadata for repo 'kubernetes': repomd.xml GPG signature verification error: Bad GPG signature
+    k8s-v1-20-0: Kubernetes                                      1.3 kB/s | 844  B     00:00    
+    k8s-v1-20-0: Kubernetes                                       19 kB/s | 3.4 kB     00:00    
+    k8s-v1-20-0: Importing GPG key 0x307EA071:
+    k8s-v1-20-0:  Userid     : "Rapture Automatic Signing Key (cloud-rapture-signing-key-2021-03-01-08_01_09.pub)"
+    k8s-v1-20-0:  Fingerprint: 7F92 E05B 3109 3BEF 5A3C 2D38 FEEA 9169 307E A071
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+    k8s-v1-20-0: Importing GPG key 0x836F4BEB:
+    k8s-v1-20-0:  Userid     : "gLinux Rapture Automatic Signing Key (//depot/google3/production/borg/cloud-rapture/keys/cloud-rapture-pubkeys/cloud-rapture-signing-key-2020-12-03-16_08_05.pub) <glinux-team@google.com>"
+    k8s-v1-20-0:  Fingerprint: 59FE 0256 8272 69DC 8157 8F92 8B57 C5C2 836F 4BEB
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+    k8s-v1-20-0: Kubernetes                                      7.2 kB/s | 975  B     00:00    
+    k8s-v1-20-0: Importing GPG key 0x3E1BA8D5:
+    k8s-v1-20-0:  Userid     : "Google Cloud Packages RPM Signing Key <gc-team@google.com>"
+    k8s-v1-20-0:  Fingerprint: 3749 E1BA 95A8 6CE0 5454 6ED2 F09C 394C 3E1B A8D5
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+    k8s-v1-20-0: Kubernetes                                      114 kB/s | 119 kB     00:01    
+    k8s-v1-20-0: Dependencies resolved.
+    k8s-v1-20-0: =======================================================================================================
+    k8s-v1-20-0:  Package                        Arch    Version                                 Repository         Size
+    k8s-v1-20-0: =======================================================================================================
+    k8s-v1-20-0: Installing:
+    k8s-v1-20-0:  docker-ce                      x86_64  3:20.10.6-3.el8                         docker-ce-stable   27 M
+    k8s-v1-20-0:  kubeadm                        x86_64  1.20.0-0                                kubernetes        8.3 M
+    k8s-v1-20-0:  kubectl                        x86_64  1.20.0-0                                kubernetes        8.5 M
+    k8s-v1-20-0:  kubelet                        x86_64  1.20.0-0                                kubernetes         20 M
+    k8s-v1-20-0: Installing dependencies:
+    k8s-v1-20-0:  checkpolicy                    x86_64  2.9-1.el8                               baseos            348 k
+    k8s-v1-20-0:  container-selinux              noarch  2:2.155.0-1.module_el8.3.0+699+d61d9c41 appstream          51 k
+    k8s-v1-20-0:  containerd.io                  x86_64  1.4.4-3.1.el8                           docker-ce-stable   33 M
+    k8s-v1-20-0:  cri-tools                      x86_64  1.13.0-0                                kubernetes        5.1 M
+    k8s-v1-20-0:  docker-ce-cli                  x86_64  1:20.10.6-3.el8                         docker-ce-stable   33 M
+    k8s-v1-20-0:  docker-ce-rootless-extras      x86_64  20.10.6-3.el8                           docker-ce-stable  9.2 M
+    k8s-v1-20-0:  docker-scan-plugin             x86_64  0.7.0-3.el8                             docker-ce-stable  4.2 M
+    k8s-v1-20-0:  fuse-common                    x86_64  3.2.1-12.el8                            baseos             21 k
+    k8s-v1-20-0:  fuse-overlayfs                 x86_64  1.3.0-2.module_el8.3.0+699+d61d9c41     appstream          72 k
+    k8s-v1-20-0:  fuse3                          x86_64  3.2.1-12.el8                            baseos             50 k
+    k8s-v1-20-0:  fuse3-libs                     x86_64  3.2.1-12.el8                            baseos             94 k
+    k8s-v1-20-0:  kubernetes-cni                 x86_64  0.8.7-0                                 kubernetes         19 M
+    k8s-v1-20-0:  libcgroup                      x86_64  0.41-19.el8                             baseos             70 k
+    k8s-v1-20-0:  libslirp                       x86_64  4.3.1-1.module_el8.3.0+475+c50ce30b     appstream          69 k
+    k8s-v1-20-0:  policycoreutils-python-utils   noarch  2.9-9.el8                               baseos            251 k
+    k8s-v1-20-0:  python3-audit                  x86_64  3.0-0.17.20191104git1c2f876.el8         baseos             86 k
+    k8s-v1-20-0:  python3-libsemanage            x86_64  2.9-3.el8                               baseos            127 k
+    k8s-v1-20-0:  python3-policycoreutils        noarch  2.9-9.el8                               baseos            2.2 M
+    k8s-v1-20-0:  python3-setools                x86_64  4.3.0-2.el8                             baseos            626 k
+    k8s-v1-20-0:  slirp4netns                    x86_64  1.1.8-1.module_el8.3.0+699+d61d9c41     appstream          51 k
+    k8s-v1-20-0:  socat                          x86_64  1.7.3.3-2.el8                           appstream         302 k
+    k8s-v1-20-0: Enabling module streams:
+    k8s-v1-20-0:  container-tools                        rhel8                                                          
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Transaction Summary
+    k8s-v1-20-0: =======================================================================================================
+    k8s-v1-20-0: Install  25 Packages
+    k8s-v1-20-0: Total download size: 171 M
+    k8s-v1-20-0: Installed size: 710 M
+    k8s-v1-20-0: Downloading Packages:
+    k8s-v1-20-0: (1/25): libslirp-4.3.1-1.module_el8.3.0+475+c50  17 kB/s |  69 kB     00:04    
+    k8s-v1-20-0: (2/25): fuse-overlayfs-1.3.0-2.module_el8.3.0+6  18 kB/s |  72 kB     00:04    
+    k8s-v1-20-0: (3/25): slirp4netns-1.1.8-1.module_el8.3.0+699+  27 kB/s |  51 kB     00:01    
+    k8s-v1-20-0: (4/25): container-selinux-2.155.0-1.module_el8. 8.5 kB/s |  51 kB     00:05    
+    k8s-v1-20-0: (5/25): fuse-common-3.2.1-12.el8.x86_64.rpm      15 kB/s |  21 kB     00:01    
+    k8s-v1-20-0: (6/25): fuse3-3.2.1-12.el8.x86_64.rpm            13 kB/s |  50 kB     00:03    
+    k8s-v1-20-0: (7/25): fuse3-libs-3.2.1-12.el8.x86_64.rpm       23 kB/s |  94 kB     00:04    
+    k8s-v1-20-0: (8/25): libcgroup-0.41-19.el8.x86_64.rpm         12 kB/s |  70 kB     00:05    
+    k8s-v1-20-0: (9/25): checkpolicy-2.9-1.el8.x86_64.rpm         22 kB/s | 348 kB     00:15    
+    k8s-v1-20-0: (10/25): socat-1.7.3.3-2.el8.x86_64.rpm          16 kB/s | 302 kB     00:19    
+    k8s-v1-20-0: (11/25): python3-audit-3.0-0.17.20191104git1c2f  13 kB/s |  86 kB     00:06    
+    k8s-v1-20-0: (12/25): python3-libsemanage-2.9-3.el8.x86_64.r  15 kB/s | 127 kB     00:08    
+    k8s-v1-20-0: (13/25): policycoreutils-python-utils-2.9-9.el8  18 kB/s | 251 kB     00:13    
+    k8s-v1-20-0: (14/25): containerd.io-1.4.4-3.1.el8.x86_64.rpm 1.1 MB/s |  33 MB     00:30    
+    k8s-v1-20-0: (15/25): python3-setools-4.3.0-2.el8.x86_64.rpm  16 kB/s | 626 kB     00:38    
+    k8s-v1-20-0: (16/25): docker-ce-20.10.6-3.el8.x86_64.rpm     1.3 MB/s |  27 MB     00:20    
+    k8s-v1-20-0: (17/25): docker-ce-rootless-extras-20.10.6-3.el 652 kB/s | 9.2 MB     00:14    
+    k8s-v1-20-0: (18/25): docker-scan-plugin-0.7.0-3.el8.x86_64. 782 kB/s | 4.2 MB     00:05    
+    k8s-v1-20-0: (19/25): 14bfe6e75a9efc8eca3f638eb22c7e2ce759c6 1.1 MB/s | 5.1 MB     00:04    
+    k8s-v1-20-0: (20/25): 91e0f0a3a10ab757acf9611e8b81e1b272d76a 1.5 MB/s | 8.3 MB     00:05    
+    k8s-v1-20-0: (21/25): 1281489661f7627c8b175b789d300fe3c703c8 1.4 MB/s | 8.5 MB     00:06    
+    k8s-v1-20-0: (22/25): 268447fe89ce41034f21c7a6c73290bd2e1920 1.4 MB/s |  20 MB     00:14    
+    k8s-v1-20-0: (23/25): docker-ce-cli-20.10.6-3.el8.x86_64.rpm 448 kB/s |  33 MB     01:15    
+    k8s-v1-20-0: (24/25): db7cb5cb0b3f6875f54d10f02e625573988e3e 1.3 MB/s |  19 MB     00:14    
+    k8s-v1-20-0: (25/25): python3-policycoreutils-2.9-9.el8.noar  16 kB/s | 2.2 MB     02:20    
+    k8s-v1-20-0: --------------------------------------------------------------------------------
+    k8s-v1-20-0: Total                                           1.0 MB/s | 171 MB     02:49     
+    k8s-v1-20-0: warning: /var/cache/dnf/docker-ce-stable-0d6da7c9ec81100a/packages/containerd.io-1.4.4-3.1.el8.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 621e9f35: NOKEY
+    k8s-v1-20-0: Docker CE Stable - x86_64                       5.2 kB/s | 1.6 kB     00:00    
+    k8s-v1-20-0: Importing GPG key 0x621E9F35:
+    k8s-v1-20-0:  Userid     : "Docker Release (CE rpm) <docker@docker.com>"
+    k8s-v1-20-0:  Fingerprint: 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35
+    k8s-v1-20-0:  From       : https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/gpg
+    k8s-v1-20-0: Key imported successfully
+    k8s-v1-20-0: warning: /var/cache/dnf/kubernetes-d03a9fe438e18cac/packages/14bfe6e75a9efc8eca3f638eb22c7e2ce759c67f95b43b16fae4ebabde1549f3-cri-tools-1.13.0-0.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 3e1ba8d5: NOKEY
+    k8s-v1-20-0: Kubernetes                                      6.6 kB/s | 3.4 kB     00:00    
+    k8s-v1-20-0: Importing GPG key 0x307EA071:
+    k8s-v1-20-0:  Userid     : "Rapture Automatic Signing Key (cloud-rapture-signing-key-2021-03-01-08_01_09.pub)"
+    k8s-v1-20-0:  Fingerprint: 7F92 E05B 3109 3BEF 5A3C 2D38 FEEA 9169 307E A071
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+    k8s-v1-20-0: Key imported successfully
+    k8s-v1-20-0: Importing GPG key 0x836F4BEB:
+    k8s-v1-20-0:  Userid     : "gLinux Rapture Automatic Signing Key (//depot/google3/production/borg/cloud-rapture/keys/cloud-rapture-pubkeys/cloud-rapture-signing-key-2020-12-03-16_08_05.pub) <glinux-team@google.com>"
+    k8s-v1-20-0:  Fingerprint: 59FE 0256 8272 69DC 8157 8F92 8B57 C5C2 836F 4BEB
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+    k8s-v1-20-0: Key imported successfully
+    k8s-v1-20-0: Kubernetes                                      4.2 kB/s | 975  B     00:00    
+    k8s-v1-20-0: Importing GPG key 0x3E1BA8D5:
+    k8s-v1-20-0:  Userid     : "Google Cloud Packages RPM Signing Key <gc-team@google.com>"
+    k8s-v1-20-0:  Fingerprint: 3749 E1BA 95A8 6CE0 5454 6ED2 F09C 394C 3E1B A8D5
+    k8s-v1-20-0:  From       : https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+    k8s-v1-20-0: Key imported successfully
+    k8s-v1-20-0: Running transaction check
+    k8s-v1-20-0: Transaction check succeeded.
+    k8s-v1-20-0: Running transaction test
+    k8s-v1-20-0: Transaction test succeeded.
+    k8s-v1-20-0: Running transaction
+    k8s-v1-20-0:   Preparing        :                                                        1/1
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : docker-scan-plugin-0.7.0-3.el8.x86_64                 1/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: docker-scan-plugin-0.7.0-3.el8.x86_64                 1/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : docker-ce-cli-1:20.10.6-3.el8.x86_64                  2/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: docker-ce-cli-1:20.10.6-3.el8.x86_64                  2/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : kubectl-1.20.0-0.x86_64                               3/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : cri-tools-1.13.0-0.x86_64                             4/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : python3-setools-4.3.0-2.el8.x86_64                    5/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : python3-libsemanage-2.9-3.el8.x86_64                  6/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_    7/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: libcgroup-0.41-19.el8.x86_64                          8/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : libcgroup-0.41-19.el8.x86_64                          8/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: libcgroup-0.41-19.el8.x86_64                          8/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : fuse3-libs-3.2.1-12.el8.x86_64                        9/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: fuse3-libs-3.2.1-12.el8.x86_64                        9/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : fuse-common-3.2.1-12.el8.x86_64                      10/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : fuse3-3.2.1-12.el8.x86_64                            11/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : fuse-overlayfs-1.3.0-2.module_el8.3.0+699+d61d9c41   12/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: fuse-overlayfs-1.3.0-2.module_el8.3.0+699+d61d9c41   12/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : checkpolicy-2.9-1.el8.x86_64                         13/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : python3-policycoreutils-2.9-9.el8.noarch             14/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : policycoreutils-python-utils-2.9-9.el8.noarch        15/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: container-selinux-2:2.155.0-1.module_el8.3.0+699+d   16/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : container-selinux-2:2.155.0-1.module_el8.3.0+699+d   16/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: container-selinux-2:2.155.0-1.module_el8.3.0+699+d   16/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : containerd.io-1.4.4-3.1.el8.x86_64                   17/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: containerd.io-1.4.4-3.1.el8.x86_64                   17/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : socat-1.7.3.3-2.el8.x86_64                           18/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : kubernetes-cni-0.8.7-0.x86_64                        19/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : kubelet-1.20.0-0.x86_64                              20/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : libslirp-4.3.1-1.module_el8.3.0+475+c50ce30b.x86_6   21/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : slirp4netns-1.1.8-1.module_el8.3.0+699+d61d9c41.x8   22/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : docker-ce-rootless-extras-20.10.6-3.el8.x86_64       23/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: docker-ce-rootless-extras-20.10.6-3.el8.x86_64       23/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : docker-ce-3:20.10.6-3.el8.x86_64                     24/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: docker-ce-3:20.10.6-3.el8.x86_64                     24/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Installing       : kubeadm-1.20.0-0.x86_64                              25/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: container-selinux-2:2.155.0-1.module_el8.3.0+699+d   25/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Running scriptlet: kubeadm-1.20.0-0.x86_64                              25/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Verifying        : container-selinux-2:2.155.0-1.module_el8.3.0+699+d    1/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0:   Verifying        : fuse-overlayfs-1.3.0-2.module_el8.3.0+699+d61d9c41    2/25 
+    k8s-v1-20-0:   Verifying        : libslirp-4.3.1-1.module_el8.3.0+475+c50ce30b.x86_6    3/25 
+    k8s-v1-20-0:   Verifying        : slirp4netns-1.1.8-1.module_el8.3.0+699+d61d9c41.x8    4/25 
+    k8s-v1-20-0:   Verifying        : socat-1.7.3.3-2.el8.x86_64                            5/25 
+    k8s-v1-20-0:   Verifying        : checkpolicy-2.9-1.el8.x86_64                          6/25 
+    k8s-v1-20-0:   Verifying        : fuse-common-3.2.1-12.el8.x86_64                       7/25 
+    k8s-v1-20-0:   Verifying        : fuse3-3.2.1-12.el8.x86_64                             8/25 
+    k8s-v1-20-0:   Verifying        : fuse3-libs-3.2.1-12.el8.x86_64                        9/25 
+    k8s-v1-20-0:   Verifying        : libcgroup-0.41-19.el8.x86_64                         10/25 
+    k8s-v1-20-0:   Verifying        : policycoreutils-python-utils-2.9-9.el8.noarch        11/25 
+    k8s-v1-20-0:   Verifying        : python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_   12/25 
+    k8s-v1-20-0:   Verifying        : python3-libsemanage-2.9-3.el8.x86_64                 13/25 
+    k8s-v1-20-0:   Verifying        : python3-policycoreutils-2.9-9.el8.noarch             14/25 
+    k8s-v1-20-0:   Verifying        : python3-setools-4.3.0-2.el8.x86_64                   15/25 
+    k8s-v1-20-0:   Verifying        : containerd.io-1.4.4-3.1.el8.x86_64                   16/25 
+    k8s-v1-20-0:   Verifying        : docker-ce-3:20.10.6-3.el8.x86_64                     17/25 
+    k8s-v1-20-0:   Verifying        : docker-ce-cli-1:20.10.6-3.el8.x86_64                 18/25 
+    k8s-v1-20-0:   Verifying        : docker-ce-rootless-extras-20.10.6-3.el8.x86_64       19/25 
+    k8s-v1-20-0:   Verifying        : docker-scan-plugin-0.7.0-3.el8.x86_64                20/25 
+    k8s-v1-20-0:   Verifying        : cri-tools-1.13.0-0.x86_64                            21/25 
+    k8s-v1-20-0:   Verifying        : kubeadm-1.20.0-0.x86_64                              22/25 
+    k8s-v1-20-0:   Verifying        : kubectl-1.20.0-0.x86_64                              23/25 
+    k8s-v1-20-0:   Verifying        : kubelet-1.20.0-0.x86_64                              24/25 
+    k8s-v1-20-0:   Verifying        : kubernetes-cni-0.8.7-0.x86_64                        25/25
+    k8s-v1-20-0:  
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Installed:
+    k8s-v1-20-0:   checkpolicy-2.9-1.el8.x86_64                                                  
+    k8s-v1-20-0:   container-selinux-2:2.155.0-1.module_el8.3.0+699+d61d9c41.noarch              
+    k8s-v1-20-0:   containerd.io-1.4.4-3.1.el8.x86_64                                            
+    k8s-v1-20-0:   cri-tools-1.13.0-0.x86_64                                                     
+    k8s-v1-20-0:   docker-ce-3:20.10.6-3.el8.x86_64                                              
+    k8s-v1-20-0:   docker-ce-cli-1:20.10.6-3.el8.x86_64                                          
+    k8s-v1-20-0:   docker-ce-rootless-extras-20.10.6-3.el8.x86_64                                
+    k8s-v1-20-0:   docker-scan-plugin-0.7.0-3.el8.x86_64                                         
+    k8s-v1-20-0:   fuse-common-3.2.1-12.el8.x86_64                                               
+    k8s-v1-20-0:   fuse-overlayfs-1.3.0-2.module_el8.3.0+699+d61d9c41.x86_64                     
+    k8s-v1-20-0:   fuse3-3.2.1-12.el8.x86_64                                                     
+    k8s-v1-20-0:   fuse3-libs-3.2.1-12.el8.x86_64                                                
+    k8s-v1-20-0:   kubeadm-1.20.0-0.x86_64                                                       
+    k8s-v1-20-0:   kubectl-1.20.0-0.x86_64                                                       
+    k8s-v1-20-0:   kubelet-1.20.0-0.x86_64                                                       
+    k8s-v1-20-0:   kubernetes-cni-0.8.7-0.x86_64                                                 
+    k8s-v1-20-0:   libcgroup-0.41-19.el8.x86_64                                                  
+    k8s-v1-20-0:   libslirp-4.3.1-1.module_el8.3.0+475+c50ce30b.x86_64                           
+    k8s-v1-20-0:   policycoreutils-python-utils-2.9-9.el8.noarch                                 
+    k8s-v1-20-0:   python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_64                          
+    k8s-v1-20-0:   python3-libsemanage-2.9-3.el8.x86_64                                          
+    k8s-v1-20-0:   python3-policycoreutils-2.9-9.el8.noarch                                      
+    k8s-v1-20-0:   python3-setools-4.3.0-2.el8.x86_64                                            
+    k8s-v1-20-0:   slirp4netns-1.1.8-1.module_el8.3.0+699+d61d9c41.x86_64                        
+    k8s-v1-20-0:   socat-1.7.3.3-2.el8.x86_64                                                    
+    k8s-v1-20-0: 
+    k8s-v1-20-0: Complete!
+    k8s-v1-20-0: Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /usr/lib/systemd/system/docker.service.
+    k8s-v1-20-0: Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /usr/lib/systemd/system/kubelet.service.
