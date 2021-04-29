@@ -2,7 +2,8 @@
 
 # change time zone
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-timedatectl set-timezone Asia/Shanghai
+# load as root
+# sudo timedatectl set-timezone Asia/Shanghai
 
 # disable firewalld 
 iptables -F
