@@ -1,0 +1,10 @@
+{
+	"name":"researchlab/k8s",
+	"versions":[{
+				"version":"1.22.0",
+				"providers":[{
+					"name":"virtualbox",
+					"url":"./k8s-v1.22-base.box"
+				}]
+	}]
+}

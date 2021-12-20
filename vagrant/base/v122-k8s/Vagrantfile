@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "roboxes/centos8"
+  #config.vbguest.installer_options = { allow_kernel_upgrade: true }
+	config.vm.network "private_network", type:"dhcp"
+  config.vm.define "k8sbase"
+	config.vm.provider "virtualbox" do |vb|
+    vb.name = "k8sbase"
+	end
+	config.ssh.insert_key = false
+  config.vm.hostname = "k8sbase"
+
+	# Vagrant provision shell with root privilege
+	# set privileged true
+  config.vm.provision "shell", path: "centos8.sh", privileged: true
+end
