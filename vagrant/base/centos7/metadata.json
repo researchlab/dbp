@@ -1,0 +1,10 @@
+{
+	"name":"researchlab/centos7",
+	"versions":[{
+				"version":"1.0.0",
+				"providers":[{
+					"name":"virtualbox",
+					"url":"./centos7.box"
+				}]
+	}]
+}
