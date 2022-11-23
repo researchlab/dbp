@@ -9,7 +9,7 @@
   "author": "Wataru Haniyama",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.24.5",
+    "browser-sync": "^2.27.10",
     "del": "^3.0.0",
     "gitbook": "^3.2.3",
     "gitbook-cli": "^2.3.2",
